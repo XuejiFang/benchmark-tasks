@@ -1,0 +1,1964 @@
+#usda 1.0
+(
+    defaultPrim = "DeskCable"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "DeskCable"
+{
+    def Cube "PlugStand" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00018
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.39, 0.4, 0.41)]
+        double size = 1
+        float3 xformOp:scale = (0.053, 0.042, 0.049)
+        double3 xformOp:translate = (0.21, 0.29, 0.0245)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "FirstStand" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00018
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.39, 0.4, 0.41)]
+        double size = 1
+        float3 xformOp:scale = (0.053, 0.042, 0.049)
+        double3 xformOp:translate = (0.21, -0.29, 0.0245)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "GuideBed" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00018
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.69, 0.6, 0.39)]
+        double size = 1
+        float3 xformOp:scale = (0.055, 0.135, 0.004)
+        double3 xformOp:translate = (0.232, 0, 0.002)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "GuideLip0" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00018
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.6, 0.49, 0.32)]
+        double size = 1
+        float3 xformOp:scale = (0.006, 0.135, 0.016)
+        double3 xformOp:translate = (0.203, 0, 0.008)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "GuideLip1" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00018
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.6, 0.49, 0.32)]
+        double size = 1
+        float3 xformOp:scale = (0.006, 0.135, 0.016)
+        double3 xformOp:translate = (0.261, 0, 0.008)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def "Dock"
+    {
+        def Cube "Base" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.083, 0.105, 0.044)
+            double3 xformOp:translate = (0.433, -0.22, 0.022)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryMinusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0015, 0.007)
+            double3 xformOp:translate = (0.39540000000000003, -0.22585, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryMinusLip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0132, 0.0012)
+            double3 xformOp:translate = (0.39540000000000003, -0.22, 0.050249999999999996)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryPlusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0015, 0.007)
+            double3 xformOp:translate = (0.39540000000000003, -0.21415, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryPlusLip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0132, 0.0012)
+            double3 xformOp:translate = (0.39540000000000003, -0.22, 0.05575)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryStop" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.002, 0.014, 0.008)
+            double3 xformOp:translate = (0.4, -0.22, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryTongue" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.11, 0.14, 0.17)]
+            double size = 1
+            float3 xformOp:scale = (0.0045, 0.0068, 0.00068)
+            double3 xformOp:translate = (0.3971, -0.22, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SecondaryMinusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0015, 0.007)
+            double3 xformOp:translate = (0.39540000000000003, -0.19885, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SecondaryMinusLip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0132, 0.0012)
+            double3 xformOp:translate = (0.39540000000000003, -0.193, 0.050249999999999996)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SecondaryPlusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0015, 0.007)
+            double3 xformOp:translate = (0.39540000000000003, -0.18715, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SecondaryPlusLip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0132, 0.0012)
+            double3 xformOp:translate = (0.39540000000000003, -0.193, 0.05575)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SecondaryStop" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.002, 0.014, 0.008)
+            double3 xformOp:translate = (0.4, -0.193, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SecondaryTongue" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.11, 0.14, 0.17)]
+            double size = 1
+            float3 xformOp:scale = (0.0045, 0.0068, 0.00068)
+            double3 xformOp:translate = (0.3971, -0.193, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PanelBetween" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.005, 0.0134, 0.009)
+            double3 xformOp:translate = (0.3925, -0.2066, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PanelEnd" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.005, 0.016, 0.009)
+            double3 xformOp:translate = (0.3925, -0.23450000000000001, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "StrainReliefShelf" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.32, 0.34, 0.36)]
+            double size = 1
+            float3 xformOp:scale = (0.026, 0.022, 0.014)
+            double3 xformOp:translate = (0.368, -0.22, 0.0417)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Sphere "GreenPortMark"
+        {
+            color3f[] primvars:displayColor = [(0.04, 0.75, 0.22)]
+            double radius = 0.006
+            double3 xformOp:translate = (0.394, -0.22, 0.063)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+    }
+
+    def "Device"
+    {
+        def Cube "Base" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.083, 0.105, 0.044)
+            double3 xformOp:translate = (0.433, 0.22, 0.022)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryMinusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0015, 0.007)
+            double3 xformOp:translate = (0.39540000000000003, 0.21415, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryMinusLip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0132, 0.0012)
+            double3 xformOp:translate = (0.39540000000000003, 0.22, 0.050249999999999996)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryPlusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0015, 0.007)
+            double3 xformOp:translate = (0.39540000000000003, 0.22585, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryPlusLip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0108, 0.0132, 0.0012)
+            double3 xformOp:translate = (0.39540000000000003, 0.22, 0.05575)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryStop" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.002, 0.014, 0.008)
+            double3 xformOp:translate = (0.4, 0.22, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PrimaryTongue" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.11, 0.14, 0.17)]
+            double size = 1
+            float3 xformOp:scale = (0.0045, 0.0068, 0.00068)
+            double3 xformOp:translate = (0.3971, 0.22, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PanelBetween" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.005, 0.0134, 0.009)
+            double3 xformOp:translate = (0.3925, 0.2334, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PanelEnd" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.2, 0.23, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.005, 0.016, 0.009)
+            double3 xformOp:translate = (0.3925, 0.2055, 0.053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "StrainReliefShelf" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.32, 0.34, 0.36)]
+            double size = 1
+            float3 xformOp:scale = (0.026, 0.022, 0.014)
+            double3 xformOp:translate = (0.368, 0.22, 0.0417)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Sphere "GreenPortMark"
+        {
+            color3f[] primvars:displayColor = [(0.04, 0.75, 0.22)]
+            double radius = 0.006
+            double3 xformOp:translate = (0.394, 0.22, 0.063)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+    }
+
+    def Xform "First" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.046
+        bool physxRigidBody:disableGravity = 0
+        bool physxRigidBody:enableCCD = 1
+        int physxRigidBody:solverPositionIterationCount = 24
+        double3 xformOp:translate = (0.23, -0.29, 0.053)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Grip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.18, 0.36, 0.54)]
+            double size = 1
+            float3 xformOp:scale = (0.021, 0.012, 0.008)
+            double3 xformOp:translate = (-0.0192, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "MinusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0007, 0.0028)
+            double3 xformOp:translate = (-0.0043, -0.00405, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "MinusSkin" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0081, 0.0005)
+            double3 xformOp:translate = (-0.0043, 0, -0.00115)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PlusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0007, 0.0028)
+            double3 xformOp:translate = (-0.0043, 0.00405, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PlusSkin" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0081, 0.0005)
+            double3 xformOp:translate = (-0.0043, 0, 0.00115)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "Second" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.046
+        bool physxRigidBody:disableGravity = 0
+        bool physxRigidBody:enableCCD = 1
+        int physxRigidBody:solverPositionIterationCount = 24
+        double3 xformOp:translate = (0.23, 0.29, 0.053)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Grip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.18, 0.36, 0.54)]
+            double size = 1
+            float3 xformOp:scale = (0.021, 0.012, 0.008)
+            double3 xformOp:translate = (-0.0192, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "MinusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0007, 0.0028)
+            double3 xformOp:translate = (-0.0043, -0.00405, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "MinusSkin" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0081, 0.0005)
+            double3 xformOp:translate = (-0.0043, 0, -0.00115)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PlusWall" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0007, 0.0028)
+            double3 xformOp:translate = (-0.0043, 0.00405, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "PlusSkin" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00018
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.6, 0.64, 0.67)]
+            double size = 1
+            float3 xformOp:scale = (0.0086, 0.0081, 0.0005)
+            double3 xformOp:translate = (-0.0043, 0, 0.00115)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def "Cord"
+    {
+        def Xform "Segment00" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.19145302645816176, -0.28547758540992296, 0.04508577446736514)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824931
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.4341430451954283, -0.41002919561844203, -0.8021196139285799, 0)
+                double3 xformOp:translate = (0, 2.7755575615628914e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment01" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.17374122716617818, -0.27581484404542006, 0.029822091030342945)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025220834753566762
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.45672286024227854, -0.4462503007890491, -0.7695874855906869, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment02" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.15595215678639712, -0.26347754579548155, 0.01700293480456598)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824934
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.5335744424893449, -0.5309235846556548, -0.6583452449730114, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, 0, -1.734723475976807e-18)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment03" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.14354528642887138, -0.2464523050570404, 0.008537433719256917)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02169777803052589
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.6016065454024752, -0.7529206899445624, -0.2667958005334866, 0)
+                double3 xformOp:translate = (0, -1.3877787807814457e-17, -4.336808689942018e-19)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment04" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.14214956368585013, -0.2241026178848993, 0.005077874736477752)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824933
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.6940789750158676, -0.7101038666293678, 0.11835064443822822, 0)
+                double3 xformOp:translate = (-1.3877787807814457e-17, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment05" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.14962418828106888, -0.2017498480856474, 0.004307059258809011)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.022430096702852686
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.6973595849860877, -0.6285289997704686, 0.3444428917477698, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, 1.3877787807814457e-17, 4.336808689942018e-19)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment06" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.16686782922733545, -0.1873585272202556, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824936
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.2538365412834051, 0.6599750073368522, 0)
+                double3 xformOp:translate = (0, -1.3877787807814457e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment07" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.1906620478839059, -0.17851626346239197, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025366201077327014
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.23874601250085536, 0.6655827082451448, 0)
+                double3 xformOp:translate = (0, -1.3877787807814457e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment08" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.21502483918154672, -0.1715904597486071, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824932
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.1471543266178602, 0.6916253351039449, 0)
+                double3 xformOp:translate = (0, 1.3877787807814457e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment09" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.2370299175582226, -0.16376832962963078, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.021781253698318296
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.3362375930916664, 0.6220484555015974, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, -1.3877787807814457e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment10" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.24781482628721646, -0.14594432398422696, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249295
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.7039215993116904, 0.06704015231539869, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, -1.3877787807814457e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment11" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.24390309073819585, -0.12312296725217023, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.022779329221276602
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6317568819052132, -0.3176212243622937, 0)
+                double3 xformOp:translate = (0, 6.938893903907228e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment12" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.22918023474151306, -0.10471671608107544, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025300439585508133
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.46004623747916307, -0.5369892544374286, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment13" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.20762171671880553, -0.09218381801876999, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249347
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.23951083293555706, -0.6653078692654368, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, -6.938893903907228e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment14" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.18371827691010512, -0.08357857968763785, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249295
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.23951083293555758, -0.6653078692654367, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, 6.938893903907228e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment15" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.1658846777051393, -0.06814077866555952, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025186407372597655
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6252390413609943, -0.33026677271258265, 0)
+                double3 xformOp:translate = (0, 3.469446951953614e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment16" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.15566596872436167, -0.0456367388313184, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.024335901330544824
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6606697209368486, -0.2520228557834122, 0)
+                double3 xformOp:translate = (-1.3877787807814457e-17, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment17" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.15688609269613313, -0.022845253902393024, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249295
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.635855229133039, 0.3093349763349924, 0)
+                double3 xformOp:translate = (-1.3877787807814457e-17, -1.734723475976807e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment18" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.16244304634806656, 7.806255641895632e-18, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.022845253902393066
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.7071067811865475, 0, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Cube "CableMarker" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00018
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.75, 0.59, 0.3)]
+                double size = 1
+                float3 xformOp:scale = (0.016, 0.016, 0.011)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "GripOnMarker" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00018
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.85, 0.69, 0.37)]
+                double size = 1
+                float3 xformOp:scale = (0.024, 0.015, 0.018)
+                double3 xformOp:translate = (0, 0, 0.012)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+        }
+
+        def Xform "Segment19" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.15688609269613313, 0.02284525390239306, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249322
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6358552291330392, -0.30933497633499213, 0)
+                double3 xformOp:translate = (-1.3877787807814457e-17, -8.673617379884035e-19, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment20" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.15566596872436167, 0.045636738831318434, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.0243359013305448
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6606697209368485, 0.2520228557834125, 0)
+                double3 xformOp:translate = (-1.3877787807814457e-17, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment21" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.16588467770513934, 0.06814077866555955, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025186407372597728
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6252390413609932, 0.3302667727125848, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment22" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.18371827691010525, 0.08357857968763789, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249326
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.23951083293555767, 0.6653078692654367, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment23" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.20762171671880564, 0.09218381801877004, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249257
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.2395108329355571, 0.6653078692654368, 0)
+                double3 xformOp:translate = (0, -6.938893903907228e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment24" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.2291802347415131, 0.1047167160810755, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02530043958550818
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.4600462374791633, 0.5369892544374284, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, -6.938893903907228e-18, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment25" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.24390309073819588, 0.12312296725217028, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02277932922127655
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.6317568819052142, 0.31762122436229184, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment26" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.24781482628721646, 0.14594432398422708, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824935
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.7039215993116904, -0.06704015231539931, 0)
+                double3 xformOp:translate = (0, -1.3877787807814457e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment27" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.23702991755822256, 0.16376832962963087, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02178125369831833
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.3362375930916633, -0.6220484555015993, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment28" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.21502483918154663, 0.1715904597486071, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249232
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.14715432661785993, -0.691625335103945, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment29" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.19066204788390584, 0.178516263462392, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025366201077327077
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.23874601250085556, -0.6655827082451446, 0)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment30" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.1668678292273354, 0.18735852722025562, 0.004)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249274
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7071067811865476, -0.2538365412834052, -0.6599750073368521, 0)
+                double3 xformOp:translate = (1.3877787807814457e-17, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment31" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.14962418828106888, 0.2017498480856474, 0.004307059258809013)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.022430096702852724
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7167214307023555, -0.6115496253574131, -0.33513795144265035, 0)
+                double3 xformOp:translate = (0, 0, -4.336808689942018e-19)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment32" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.1421495636858501, 0.22410261788489932, 0.005077874736477753)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824935
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7198988654255004, -0.6846352836152941, -0.11410588060254838, 0)
+                double3 xformOp:translate = (0, 1.3877787807814457e-17, 4.336808689942018e-19)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment33" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.14354528642887138, 0.24645230505704047, 0.008537433719256918)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02169777803052584
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.7987925666459973, -0.5670583755448693, 0.20093589573671003, 0)
+                double3 xformOp:translate = (0, -1.3877787807814457e-17, 8.673617379884035e-19)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment34" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.15595215678639715, 0.26347754579548155, 0.01700293480456599)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025405207368249395
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.8457531048256249, -0.3349526641649084, 0.41534130356448495, 0)
+                double3 xformOp:translate = (0, 2.7755575615628914e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment35" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.17374122716617818, 0.2758148440454201, 0.029822091030342945)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.025220834753566675
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.8896090315032286, -0.22910369223203136, 0.39510412459697053, 0)
+                double3 xformOp:translate = (0, -2.7755575615628914e-17, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def Xform "Segment36" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            float physics:mass = 0.0024
+            float physxRigidBody:angularDamping = 0.8
+            int physxRigidBody:solverPositionIterationCount = 24
+            double3 xformOp:translate = (0.19145302645816176, 0.28547758540992296, 0.04508577446736513)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Capsule "Jacket" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                double height = 0.02540520736824934
+                float physxCollision:contactOffset = 0.00045
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.1, 0.17, 0.24)]
+                double radius = 0.0028
+                quatd xformOp:orient = (0.9008439467013365, -0.1976050616276601, 0.386564901809112, 0)
+                double3 xformOp:translate = (-1.3877787807814457e-17, -2.7755575615628914e-17, 3.469446951953614e-18)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+    }
+
+    def "Joints"
+    {
+        def PhysicsSphericalJoint "Link00"
+        {
+            rel physics:body0 = </DeskCable/First>
+            rel physics:body1 = </DeskCable/Cord/Segment00>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0297, 0, 0)
+            point3f physics:localPos1 = (0.008846974, -0.0045224144, 0.007914226)
+        }
+
+        def PhysicsSphericalJoint "Link01"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment00>
+            rel physics:body1 = </DeskCable/Cord/Segment01>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.008846974, 0.0045224144, -0.007914226)
+            point3f physics:localPos1 = (0.008864826, -0.005140327, 0.007349458)
+        }
+
+        def PhysicsSphericalJoint "Link02"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment01>
+            rel physics:body1 = </DeskCable/Cord/Segment02>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.008864826, 0.005140327, -0.007349458)
+            point3f physics:localPos1 = (0.008924245, -0.0071969717, 0.0054696985)
+        }
+
+        def PhysicsSphericalJoint "Link03"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment02>
+            rel physics:body1 = </DeskCable/Cord/Segment03>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.008924245, 0.0071969717, -0.0054696985)
+            point3f physics:localPos1 = (0.0034826258, -0.0098282695, 0.0029958028)
+        }
+
+        def PhysicsSphericalJoint "Link04"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment03>
+            rel physics:body1 = </DeskCable/Cord/Segment04>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0034826258, 0.0098282695, -0.0029958028)
+            point3f physics:localPos1 = (-0.002086903, -0.012521418, 0.0004637562)
+        }
+
+        def PhysicsSphericalJoint "Link05"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment04>
+            rel physics:body1 = </DeskCable/Cord/Segment05>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.002086903, 0.012521418, -0.0004637562)
+            point3f physics:localPos1 = (-0.0053877216, -0.009831352, 0.00030705926)
+        }
+
+        def PhysicsSphericalJoint "Link06"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment05>
+            rel physics:body1 = </DeskCable/Cord/Segment06>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.0053877216, 0.009831352, -0.00030705926)
+            point3f physics:localPos1 = (-0.011855919, -0.004559969, 0)
+        }
+
+        def PhysicsSphericalJoint "Link07"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment06>
+            rel physics:body1 = </DeskCable/Cord/Segment07>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.011855919, 0.004559969, 0)
+            point3f physics:localPos1 = (-0.011938299, -0.004282295, 0)
+        }
+
+        def PhysicsSphericalJoint "Link08"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment07>
+            rel physics:body1 = </DeskCable/Cord/Segment08>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.011938299, 0.004282295, 0)
+            point3f physics:localPos1 = (-0.012424492, -0.0026435088, 0)
+        }
+
+        def PhysicsSphericalJoint "Link09"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment08>
+            rel physics:body1 = </DeskCable/Cord/Segment09>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.012424492, 0.0026435088, 0)
+            point3f physics:localPos1 = (-0.009580586, -0.005178621, 0)
+        }
+
+        def PhysicsSphericalJoint "Link10"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment09>
+            rel physics:body1 = </DeskCable/Cord/Segment10>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.009580586, 0.005178621, 0)
+            point3f physics:localPos1 = (-0.0012043223, -0.012645384, 0)
+        }
+
+        def PhysicsSphericalJoint "Link11"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment10>
+            rel physics:body1 = </DeskCable/Cord/Segment11>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.0012043223, 0.012645384, 0)
+            point3f physics:localPos1 = (0.005116058, -0.010175972, 0)
+        }
+
+        def PhysicsSphericalJoint "Link12"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment11>
+            rel physics:body1 = </DeskCable/Cord/Segment12>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.005116058, 0.010175972, 0)
+            point3f physics:localPos1 = (0.009606798, -0.008230279, 0)
+        }
+
+        def PhysicsSphericalJoint "Link13"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment12>
+            rel physics:body1 = </DeskCable/Cord/Segment13>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.009606798, 0.008230279, 0)
+            point3f physics:localPos1 = (0.01195172, -0.004302619, 0)
+        }
+
+        def PhysicsSphericalJoint "Link14"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment13>
+            rel physics:body1 = </DeskCable/Cord/Segment14>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.01195172, 0.004302619, 0)
+            point3f physics:localPos1 = (0.01195172, -0.004302619, 0)
+        }
+
+        def PhysicsSphericalJoint "Link15"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment14>
+            rel physics:body1 = </DeskCable/Cord/Segment15>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.01195172, 0.004302619, 0)
+            point3f physics:localPos1 = (0.0058818795, -0.011135181, 0)
+        }
+
+        def PhysicsSphericalJoint "Link16"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment15>
+            rel physics:body1 = </DeskCable/Cord/Segment16>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0058818795, 0.011135181, 0)
+            point3f physics:localPos1 = (0.0043368298, -0.011368858, 0)
+        }
+
+        def PhysicsSphericalJoint "Link17"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment16>
+            rel physics:body1 = </DeskCable/Cord/Segment17>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0043368298, 0.011368858, 0)
+            point3f physics:localPos1 = (-0.0055569536, -0.011422627, 0)
+        }
+
+        def PhysicsSphericalJoint "Link18"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment17>
+            rel physics:body1 = </DeskCable/Cord/Segment18>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.0055569536, 0.011422627, 0)
+            point3f physics:localPos1 = (0, -0.011422627, 0)
+        }
+
+        def PhysicsSphericalJoint "Link19"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment18>
+            rel physics:body1 = </DeskCable/Cord/Segment19>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0, 0.011422627, 0)
+            point3f physics:localPos1 = (0.0055569536, -0.011422627, 0)
+        }
+
+        def PhysicsSphericalJoint "Link20"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment19>
+            rel physics:body1 = </DeskCable/Cord/Segment20>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0055569536, 0.011422627, 0)
+            point3f physics:localPos1 = (-0.0043368298, -0.011368858, 0)
+        }
+
+        def PhysicsSphericalJoint "Link21"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment20>
+            rel physics:body1 = </DeskCable/Cord/Segment21>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.0043368298, 0.011368858, 0)
+            point3f physics:localPos1 = (-0.0058818795, -0.011135181, 0)
+        }
+
+        def PhysicsSphericalJoint "Link22"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment21>
+            rel physics:body1 = </DeskCable/Cord/Segment22>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.0058818795, 0.011135181, 0)
+            point3f physics:localPos1 = (-0.01195172, -0.004302619, 0)
+        }
+
+        def PhysicsSphericalJoint "Link23"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment22>
+            rel physics:body1 = </DeskCable/Cord/Segment23>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.01195172, 0.004302619, 0)
+            point3f physics:localPos1 = (-0.01195172, -0.004302619, 0)
+        }
+
+        def PhysicsSphericalJoint "Link24"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment23>
+            rel physics:body1 = </DeskCable/Cord/Segment24>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.01195172, 0.004302619, 0)
+            point3f physics:localPos1 = (-0.009606798, -0.008230279, 0)
+        }
+
+        def PhysicsSphericalJoint "Link25"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment24>
+            rel physics:body1 = </DeskCable/Cord/Segment25>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.009606798, 0.008230279, 0)
+            point3f physics:localPos1 = (-0.005116058, -0.010175972, 0)
+        }
+
+        def PhysicsSphericalJoint "Link26"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment25>
+            rel physics:body1 = </DeskCable/Cord/Segment26>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.005116058, 0.010175972, 0)
+            point3f physics:localPos1 = (0.0012043223, -0.012645384, 0)
+        }
+
+        def PhysicsSphericalJoint "Link27"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment26>
+            rel physics:body1 = </DeskCable/Cord/Segment27>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0012043223, 0.012645384, 0)
+            point3f physics:localPos1 = (0.009580586, -0.005178621, 0)
+        }
+
+        def PhysicsSphericalJoint "Link28"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment27>
+            rel physics:body1 = </DeskCable/Cord/Segment28>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.009580586, 0.005178621, 0)
+            point3f physics:localPos1 = (0.012424492, -0.0026435088, 0)
+        }
+
+        def PhysicsSphericalJoint "Link29"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment28>
+            rel physics:body1 = </DeskCable/Cord/Segment29>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.012424492, 0.0026435088, 0)
+            point3f physics:localPos1 = (0.011938299, -0.004282295, 0)
+        }
+
+        def PhysicsSphericalJoint "Link30"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment29>
+            rel physics:body1 = </DeskCable/Cord/Segment30>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.011938299, 0.004282295, 0)
+            point3f physics:localPos1 = (0.011855919, -0.004559969, 0)
+        }
+
+        def PhysicsSphericalJoint "Link31"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment30>
+            rel physics:body1 = </DeskCable/Cord/Segment31>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.011855919, 0.004559969, 0)
+            point3f physics:localPos1 = (0.0053877216, -0.009831352, -0.00030705926)
+        }
+
+        def PhysicsSphericalJoint "Link32"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment31>
+            rel physics:body1 = </DeskCable/Cord/Segment32>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.0053877216, 0.009831352, 0.00030705926)
+            point3f physics:localPos1 = (0.002086903, -0.012521418, -0.0004637562)
+        }
+
+        def PhysicsSphericalJoint "Link33"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment32>
+            rel physics:body1 = </DeskCable/Cord/Segment33>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (-0.002086903, 0.012521418, 0.0004637562)
+            point3f physics:localPos1 = (-0.0034826258, -0.0098282695, -0.0029958028)
+        }
+
+        def PhysicsSphericalJoint "Link34"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment33>
+            rel physics:body1 = </DeskCable/Cord/Segment34>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.0034826258, 0.0098282695, 0.0029958028)
+            point3f physics:localPos1 = (-0.008924245, -0.0071969717, -0.0054696985)
+        }
+
+        def PhysicsSphericalJoint "Link35"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment34>
+            rel physics:body1 = </DeskCable/Cord/Segment35>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.008924245, 0.0071969717, 0.0054696985)
+            point3f physics:localPos1 = (-0.008864826, -0.005140327, -0.007349458)
+        }
+
+        def PhysicsSphericalJoint "Link36"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment35>
+            rel physics:body1 = </DeskCable/Cord/Segment36>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.008864826, 0.005140327, 0.007349458)
+            point3f physics:localPos1 = (-0.008846974, -0.0045224144, -0.007914226)
+        }
+
+        def PhysicsSphericalJoint "Link37"
+        {
+            rel physics:body0 = </DeskCable/Cord/Segment36>
+            rel physics:body1 = </DeskCable/Second>
+            bool physics:collisionEnabled = 0
+            float physics:coneAngle0Limit = 50
+            float physics:coneAngle1Limit = 50
+            point3f physics:localPos0 = (0.008846974, 0.0045224144, 0.007914226)
+            point3f physics:localPos1 = (-0.0297, 0, 0)
+        }
+    }
+}
+
