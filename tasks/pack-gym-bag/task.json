@@ -1,0 +1,19 @@
+{
+  "title": "Pack a gym bag from the floor, coffee table and sofa",
+  "category": "Societal relatability",
+  "keywords": [
+    "gym bag",
+    "household packing",
+    "multi-height manipulation",
+    "dual-arm",
+    "rigid-body packing"
+  ],
+  "instruction": "Pack the teal capped water bottle on the coffee-table tray, both blue-and-white running shoes on the floor, the black wallet on the sofa, and the over-ear headphones on the sofa into the open olive-green gym bag. Leave all five objects fully inside the bag, let go of them, and move both grippers clear.",
+  "context": "Prepare one bag for a gym and grocery outing. The arms must pick up a pair of shoes from the floor, a bottle confined by a shallow tray, and two thin or irregular objects on a sofa, then arrange all five inside one open bag between the arm stands.",
+  "setup": "Fixed furnished living room with two 6-DoF YAM arms on floor stands. From above, the olive canvas-and-leather duffel (67.2 × 46.2 × 29.5 cm body) is open on a footstool between the stands. A teal capped steel bottle (7.3 cm diameter × 25.6 cm long, 250 g) lies in a 29 × 16 cm silicone tray on the stone-and-wood coffee table. Two blue-white fabric-and-rubber running shoes (each 29.7 × 11.0 × 10.5 cm, 300 g) are side by side on the wool rug. A closed leather wallet (11.5 × 9.0 × 1.5 cm, 120 g) and plastic/metal/padded over-ear headphones (20.2 × 8.35 × 17.75 cm, 250 g) rest separately on the linen sofa. An upright spare bottle and canvas tote stay in the background. Exact poses, materials and measured scene inventory are in the task files.",
+  "scoring": "Final score is the sum for the objects satisfying every condition for the final 40 control steps: bottle 0.25, each shoe 0.125, wallet 0.25, headphones 0.25. Every mesh vertex must lie inside the bag-local volume X ±30 cm, Y ±18.645 cm, Z 4.35–24.5 cm above the bag origin. Each qualifying object has linear speed below 1 cm/s, angular speed below 0.1 rad/s, measured gripper normal force below 0.02 N total, and both gripper tool centers more than 16 cm from its physical bounding-box center. Any support within the bag is allowed. A run may terminate early once the score reaches 1.0.",
+  "run_limit": "3,000 control steps (150 seconds at 20 Hz)",
+  "reset_notes": "Reset to the documented seed-0 layout with zero object jitter and both YAM arms in their READY pose. The bag is already open, with handles folded out of the way before reset.",
+  "fidelity": "Real-scale rigid target objects and static colliding furniture. The duffel keeps the source appearance with a widened open body, rigid lining and floor, fixed position and outward-folded handles. Fabric flex, zipper operation, moving clasps and bottle liquid are omitted. Background objects are static.",
+  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0"
+}
