@@ -1,0 +1,507 @@
+#usda 1.0
+(
+    defaultPrim = "Blind"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Blind"
+{
+    def Cube "TopRail" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00024
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+        double size = 1
+        float3 xformOp:scale = (0.095, 0.376, 0.026)
+        double3 xformOp:translate = (0, 0, 0.361)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "GuideLeft" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00024
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+        double size = 1
+        float3 xformOp:scale = (0.035, 0.02, 0.303)
+        double3 xformOp:translate = (0, -0.173, 0.198)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "GuideRight" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        float physxCollision:contactOffset = 0.00024
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+        double size = 1
+        float3 xformOp:scale = (0.035, 0.02, 0.303)
+        double3 xformOp:translate = (0, 0.173, 0.198)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "HeightStripe" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+    )
+    {
+        bool physics:collisionEnabled = 0
+        float physxCollision:contactOffset = 0.00024
+        float physxCollision:restOffset = 0
+        color3f[] primvars:displayColor = [(0.22, 0.45, 0.66)]
+        double size = 1
+        float3 xformOp:scale = (0.008, 0.017, 0.008)
+        double3 xformOp:translate = (-0.021, 0.183, 0.14900000000000002)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Xform "Track" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.6
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Housing" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+            double size = 1
+            float3 xformOp:scale = (0.029, 0.053, 0.053)
+            double3 xformOp:translate = (0.128, 0.105, 0.202)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsFixedJoint "TrackAnchor" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
+    {
+        rel physics:body1 = </Blind/Track>
+        point3f physics:localPos0 = (0.36, 0.035, 0.63)
+        point3f physics:localPos1 = (0, 0, 0)
+    }
+
+    def Xform "Carriage" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.15
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "BottomRail" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+            double size = 1
+            float3 xformOp:scale = (0.044, 0.308, 0.018)
+            double3 xformOp:translate = (0, 0, 0.064)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SliderLeft" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.35, 0.37, 0.36)]
+            double size = 1
+            float3 xformOp:scale = (0.023, 0.011, 0.201)
+            double3 xformOp:translate = (0, -0.155, 0.163)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SliderRight" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.35, 0.37, 0.36)]
+            double size = 1
+            float3 xformOp:scale = (0.023, 0.011, 0.201)
+            double3 xformOp:translate = (0, 0.155, 0.163)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LiftWeld" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.29, 0.33, 0.34)]
+            double size = 1
+            float3 xformOp:scale = (0.026, 0.026, 0.016)
+            double3 xformOp:translate = (-0.026, 0.12, 0.064)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LiftSupport" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.29, 0.33, 0.34)]
+            double size = 1
+            float3 xformOp:scale = (0.03, 0.067, 0.016)
+            double3 xformOp:translate = (-0.044, 0.151, 0.064)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LiftExtension" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.29, 0.33, 0.34)]
+            double size = 1
+            float3 xformOp:scale = (0.113, 0.021, 0.016)
+            double3 xformOp:translate = (-0.076, 0.169, 0.064)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LiftTab" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.18, 0.37, 0.42)]
+            double size = 1
+            float3 xformOp:scale = (0.038, 0.035, 0.022)
+            double3 xformOp:translate = (-0.131, 0.169, 0.064)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "BrakePlate" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI", "PhysxCollisionAPI"]
+        )
+        {
+            rel material:binding:physics = </Blind/BrakeLining>
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.3, 0.35, 0.35)]
+            double size = 1
+            float3 xformOp:scale = (0.012, 0.032, 0.24)
+            double3 xformOp:translate = (0.067, 0.105, 0.149)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsPrismaticJoint "Lift"
+    {
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Blind/Track>
+        rel physics:body1 = </Blind/Carriage>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        float physics:lowerLimit = 0
+        float physics:upperLimit = 0.108
+    }
+
+    def Xform "Brake" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.03
+        double3 xformOp:translate = (0.097, 0.105, 0.202)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Pad" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI", "PhysxCollisionAPI"]
+        )
+        {
+            rel material:binding:physics = </Blind/BrakeLining>
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.21, 0.24, 0.22)]
+            double size = 1
+            float3 xformOp:scale = (0.018, 0.034, 0.03)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsPrismaticJoint "BrakeSpring" (
+        prepend apiSchemas = ["PhysicsDriveAPI:linear"]
+    )
+    {
+        float drive:linear:physics:damping = 6
+        float drive:linear:physics:stiffness = 650
+        float drive:linear:physics:targetPosition = -0.026
+        uniform token physics:axis = "X"
+        rel physics:body1 = </Blind/Brake>
+        point3f physics:localPos0 = (0.457, 0.14, 0.832)
+        point3f physics:localPos1 = (0, 0, 0)
+        float physics:lowerLimit = -0.03
+        float physics:upperLimit = 0
+    }
+
+    def Material "BrakeLining" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.7
+        float physics:staticFriction = 0.85
+    }
+
+    def Xform "TiltLink" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.014
+        double3 xformOp:translate = (0.029, 0.116, 0.169)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Tie" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.33, 0.4, 0.4)]
+            double size = 1
+            float3 xformOp:scale = (0.006, 0.007, 0.132)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "Slat0" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (-0.006151515, 0, 0)
+        float physics:mass = 0.022
+        double3 xformOp:translate = (0, 0, 0.115)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Blade" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.55, 0.6, 0.61)]
+            double size = 1
+            float3 xformOp:scale = (0.075, 0.315, 0.003)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Crank" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+            double size = 1
+            float3 xformOp:scale = (0.029, 0.009, 0.006)
+            double3 xformOp:translate = (0.0145, 0.116, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsRevoluteJoint "Tilt0" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysxJointAPI"]
+    )
+    {
+        float drive:angular:physics:damping = 0.0013
+        float drive:angular:physics:stiffness = 0
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Blind/Carriage>
+        rel physics:body1 = </Blind/Slat0>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0.115)
+        point3f physics:localPos1 = (0, 0, 0)
+        float physics:lowerLimit = -61
+        float physics:upperLimit = 61
+        float physxJoint:jointFriction = 0.16
+    }
+
+    def PhysicsRevoluteJoint "LinkPivot0"
+    {
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Blind/Slat0>
+        rel physics:body1 = </Blind/TiltLink>
+        bool physics:collisionEnabled = 0
+        uniform bool physics:excludeFromArticulation = 1
+        point3f physics:localPos0 = (0.029, 0.116, 0)
+        point3f physics:localPos1 = (0, 0, -0.054)
+    }
+
+    def Xform "Slat1" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (-0.006151515, 0, 0)
+        float physics:mass = 0.022
+        double3 xformOp:translate = (0, 0, 0.169)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Blade" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.55, 0.6, 0.61)]
+            double size = 1
+            float3 xformOp:scale = (0.075, 0.315, 0.003)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Crank" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+            double size = 1
+            float3 xformOp:scale = (0.029, 0.009, 0.006)
+            double3 xformOp:translate = (0.0145, 0.116, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Capsule "TiltLever" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            double height = 0.105
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.48, 0.41, 0.26)]
+            double radius = 0.007
+            quatd xformOp:orient = (0.7071067811865476, 0, -0.7071067811865475, 0)
+            double3 xformOp:translate = (-0.0525, -0.078, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cube "TiltTab" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.81, 0.45, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.037, 0.041, 0.016)
+            double3 xformOp:translate = (-0.11, -0.078, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsRevoluteJoint "Tilt1" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysxJointAPI"]
+    )
+    {
+        float drive:angular:physics:damping = 0.0013
+        float drive:angular:physics:stiffness = 0
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Blind/Carriage>
+        rel physics:body1 = </Blind/Slat1>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0.169)
+        point3f physics:localPos1 = (0, 0, 0)
+        float physics:lowerLimit = -61
+        float physics:upperLimit = 61
+        float physxJoint:jointFriction = 0.16
+    }
+
+    def PhysicsRevoluteJoint "LinkPivot1"
+    {
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Blind/Slat1>
+        rel physics:body1 = </Blind/TiltLink>
+        bool physics:collisionEnabled = 0
+        uniform bool physics:excludeFromArticulation = 1
+        point3f physics:localPos0 = (0.029, 0.116, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+    }
+
+    def Xform "Slat2" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (-0.006151515, 0, 0)
+        float physics:mass = 0.022
+        double3 xformOp:translate = (0, 0, 0.223)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Blade" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.55, 0.6, 0.61)]
+            double size = 1
+            float3 xformOp:scale = (0.075, 0.315, 0.003)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Crank" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.00024
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.42, 0.46, 0.45)]
+            double size = 1
+            float3 xformOp:scale = (0.029, 0.009, 0.006)
+            double3 xformOp:translate = (0.0145, 0.116, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsRevoluteJoint "Tilt2" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysxJointAPI"]
+    )
+    {
+        float drive:angular:physics:damping = 0.0013
+        float drive:angular:physics:stiffness = 0
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Blind/Carriage>
+        rel physics:body1 = </Blind/Slat2>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0.223)
+        point3f physics:localPos1 = (0, 0, 0)
+        float physics:lowerLimit = -61
+        float physics:upperLimit = 61
+        float physxJoint:jointFriction = 0.16
+    }
+
+    def PhysicsRevoluteJoint "LinkPivot2"
+    {
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Blind/Slat2>
+        rel physics:body1 = </Blind/TiltLink>
+        bool physics:collisionEnabled = 0
+        uniform bool physics:excludeFromArticulation = 1
+        point3f physics:localPos0 = (0.029, 0.116, 0)
+        point3f physics:localPos1 = (0, 0, 0.054)
+    }
+}
+
