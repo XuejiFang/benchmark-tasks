@@ -1,0 +1,18 @@
+{
+  "title": "Dose dry tea and seat the filled infuser",
+  "category": "Societal relatability",
+  "keywords": [
+    "dry particles",
+    "food preparation",
+    "tool use",
+    "scooping",
+    "precise insertion"
+  ],
+  "instruction": "Take the lid off the green tea tin. Set it flat on the worktop about ten centimetres diagonally to the right and away from the robot bases. Use the scoop to put 24 to 33 pieces of dry tea from the tin into the loose metal filter basket. Do not spill any tea. Set down the scoop, then seat the filled filter basket upright in the brown cup and release it.",
+  "context": "A shared kitchen uses loose-leaf tea. This task combines dry ingredient dosing with carrying and fitting a loaded infuser into a cup.",
+  "setup": "A 60 × 75 × 4 cm wood worktop, green coated-metal tin with 76 mm inner diameter, removable 83 mm coated lid, 31 × 27 × 74 mm metal scoop with a resin handle, loose metal infuser with 58 mm inner diameter, and a brown ceramic cup with 70 mm inner diameter. All 160 dry tea pieces start in the closed tin. The scoop rests on the worktop and the infuser rests separately from the cup. Two fixed-base YAM arms face the worktop. See README for coordinates, mounting and materials.",
+  "scoring": "Evaluate all final 20 control steps. Park the lid on the specified worktop area for 0.20, keep 24–33 pieces in the infuser for 0.35, and seat the infuser upright in the cup for 0.35. Award the last 0.10 for a qualifying dose with all 160 pieces contained in the tin or infuser. Exact position, height, drift and up-axis tolerances are in the README and audit script.",
+  "run_limit": "2,400 control steps (120 simulated seconds at 20 Hz)",
+  "fidelity": "Each rolled tea piece is a separate simulated rigid body. The scoop holds particles through collisions and its grip is maintained only by physical finger contact. The dry infuser has a collision-tight floor and walls. Hot water and mesh permeability are outside this preparation step.",
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+}
