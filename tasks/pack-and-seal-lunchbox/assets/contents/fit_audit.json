@@ -1,0 +1,31 @@
+{
+  "scope": "authored object collision bounds in pinned tub and closed lid",
+  "source_sha256": "dec08e22974b684d565dc5fc42b32ce963eccf62ca6a101fbf8fd6f9aa6eb3c1",
+  "all_clear": true,
+  "placements": {
+    "divider": {
+      "position_m": [
+        0.0,
+        0.0,
+        0.0034999999191612004
+      ],
+      "intersecting_colliders": []
+    },
+    "wrapped_item_left": {
+      "position_m": [
+        0.01,
+        0.034,
+        0.0034999999191612004
+      ],
+      "intersecting_colliders": []
+    },
+    "wrapped_item_right": {
+      "position_m": [
+        0.01,
+        -0.034,
+        0.0034999999191612004
+      ],
+      "intersecting_colliders": []
+    }
+  }
+}
