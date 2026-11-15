@@ -1,0 +1,19 @@
+{
+  "assets/cups/short_cup.usda": "9cc252a2ecddb54c9b4e849a6de7b26da8258ff7f2ee9a54369ddf6ca69b910a",
+  "assets/cups/tall_cup.usda": "a420017f469383ff95ffe9bdcd7ce666476b9c1dc34c3e7265a41e500cde40bb",
+  "assets/cups/wood_cup.usda": "6a41d4be95167668ad4baed2ce7e9703ad3b162106c6e8c4c9736bd1e3ccc4dd",
+  "assets/dishwasher/.thumbs/256x256/dishwasher_ldfn4542b.usd.png": "1a2f5a954e80e1f4e9c32f30e946813e347d579af7b7534f19e8f475199dc133",
+  "assets/dishwasher/.thumbs/256x256/dishwasher_ldfn4542b.usd_light.png": "3fe5a48a2a215f677ff725fda064b7dc3f7ca80a9fd1faa87aca02c7fee97614",
+  "assets/dishwasher/dishwasher_ldfn4542b.usd": "abe1873440af6f9b5f092bb8df7f81d6ae89115bd4744b54e1de531cecc90520",
+  "assets/dishwasher/materials/OmniPBR.mdl": "d384fc800f120e3cad1b7ca8837f9c554f9c34343d194813fca27caa493001f2",
+  "assets/dishwasher/materials/OmniPBRBase.mdl": "701f37299b44106842bdbe025de52eedec391e35b038f61c4ed4d25bd98e7db1",
+  "assets/dishwasher/materials/OmniPBR_ClearCoat.mdl": "687fce3f0693146b91495f04407a7c38c78f6b9262b63621f44b4b1f09110469",
+  "assets/dishwasher/textures/t_control_pannel_black_alb.png": "e2de3b622b43a246539a90b92d6334ce4eee51cbe832426c672004ae03301784",
+  "assets/dishwasher/textures/t_control_pannel_black_ems.png": "16b6aa82b0c2bf09ffc7ee53099021b8acd1ddf87fac0810b144dd442189fa25",
+  "assets/dishwasher/textures/t_control_pannel_black_occ.png": "c5a92859401792768307afbf4aee175a2afdbb790c8552694aff9150898b8ab3",
+  "assets/dishwasher/textures/t_fabric_alb.png": "cbae7fcdffd4958e88f60798b83b8ba7e401023df00a8c4cca2ab46963fb78ef",
+  "assets/dishwasher/textures/t_mesh_filter_alb.png": "25784aef3e47784965cb1749da6beca296e2eb5936c70c94522474c89b143527",
+  "assets/dishwasher/textures/t_mesh_filter_nor.png": "3bdc58ab9c8456401d8a1b4715d411541424d4628d92d44996ee2b5faf1b472b",
+  "assets/dishwasher/textures/t_nozzle_deco_nor.png": "e7ac86afb8000eb979fa1d02e432990dd0f1f61247a433755cf9928617d3701f",
+  "assets/dishwasher/textures/t_rack_button_nor.png": "a1fea8f02f1447c8c1749a3635ce14e3cb7fa245513d05a5e62f59524090ce3d"
+}
