@@ -1,0 +1,4263 @@
+#usda 1.0
+(
+    defaultPrim = "Watering"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Watering"
+{
+    def Xform "Pitcher" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.27
+        bool physxRigidBody:enableCCD = 1
+        int physxRigidBody:solverPositionIterationCount = 24
+        int physxRigidBody:solverVelocityIterationCount = 8
+        double3 xformOp:translate = (0, 0, 0.0004)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Base" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.069, 0.069, 0.004)
+            double3 xformOp:translate = (0, 0, 0.002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LeftX" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.004, 0.068, 0.06)
+            double3 xformOp:translate = (0.032, 0, 0.032)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LeftY" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.06, 0.004, 0.06)
+            double3 xformOp:translate = (0, 0.032, 0.032)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LeftGripSupport" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.019, 0.01, 0.035)
+            double3 xformOp:translate = (-0.013, 0.032, 0.06)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LeftGrip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Watering/GripRubber>
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.22, 0.28, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.018, 0.035, 0.012)
+            double3 xformOp:translate = (-0.013, 0.047, 0.08)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LeftSpoutSide" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.037, 0.014, 0.005)
+            double3 xformOp:translate = (0.017, 0.027, 0.061)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "RightX" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.004, 0.068, 0.06)
+            double3 xformOp:translate = (-0.032, 0, 0.032)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "RightY" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.06, 0.004, 0.06)
+            double3 xformOp:translate = (0, -0.032, 0.032)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "RightGripSupport" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.019, 0.01, 0.035)
+            double3 xformOp:translate = (-0.013, -0.032, 0.06)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "RightGrip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Watering/GripRubber>
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.22, 0.28, 0.26)]
+            double size = 1
+            float3 xformOp:scale = (0.018, 0.035, 0.012)
+            double3 xformOp:translate = (-0.013, -0.047, 0.08)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "RightSpoutSide" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.037, 0.014, 0.005)
+            double3 xformOp:translate = (0.017, -0.027, 0.061)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "SpoutDeck" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            float physxCollision:contactOffset = 0.0006
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.1, 0.35, 0.38)]
+            double size = 1
+            float3 xformOp:scale = (0.033, 0.067, 0.005)
+            double3 xformOp:translate = (-0.02, 0, 0.061)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Material "GripRubber" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.7
+        float physics:staticFriction = 0.9
+    }
+
+    def "Planters"
+    {
+        def "target"
+        {
+            def Cube "Bottom" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.55, 0.25, 0.14)]
+                double size = 1
+                float3 xformOp:scale = (0.111, 0.109, 0.004)
+                double3 xformOp:translate = (0.175, 0, 0.002)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "XNear" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.55, 0.25, 0.14)]
+                double size = 1
+                float3 xformOp:scale = (0.006, 0.11, 0.067)
+                double3 xformOp:translate = (0.122, 0, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "YNear" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.55, 0.25, 0.14)]
+                double size = 1
+                float3 xformOp:scale = (0.103, 0.006, 0.067)
+                double3 xformOp:translate = (0.175, -0.052, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "XFar" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.55, 0.25, 0.14)]
+                double size = 1
+                float3 xformOp:scale = (0.006, 0.11, 0.067)
+                double3 xformOp:translate = (0.22799999999999998, 0, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "YFar" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.55, 0.25, 0.14)]
+                double size = 1
+                float3 xformOp:scale = (0.103, 0.006, 0.067)
+                double3 xformOp:translate = (0.175, 0.052, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem0" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.10791200118615167
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9978849278316461, 0, 0.06500515984466707, 0)
+                double3 xformOp:translate = (0.221, 0.026, 0.0575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf0"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.37, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.228, 0.026, 0.111)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem1" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.1183034793610536
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.995120360801898, -0.09694255053005658, 0.01837415070765697, 0)
+                double3 xformOp:translate = (0.21616311896062462, 0.03741267819554184, 0.062)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf1"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.395, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.21832623792124925, 0.04882535639108368, 0.12)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem2" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.10851860103718974
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9964953778539909, -0.06522595647091634, -0.0523692325520052, 0)
+                double3 xformOp:translate = (0.20833688103937537, 0.03305342302750968, 0.0575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf2"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.42, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.20267376207875074, 0.04010684605501936, 0.111)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem3" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.11740224346693191
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9970095476110249, 0.060259318824953105, -0.04838157156616798, 0)
+                double3 xformOp:translate = (0.20833688103937537, 0.018946576972490324, 0.062)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf3"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.445, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.20267376207875074, 0.011893153944980646, 0.12)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem4" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.10949298255564709
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9942916013118678, 0.10483046558227861, 0.01986919843588635, -0)
+                double3 xformOp:translate = (0.21616311896062462, 0.014587321804458155, 0.0575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf4"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.47, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.21832623792124925, 0.003174643608916311, 0.111)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+        }
+
+        def "neighbor"
+        {
+            def Cube "Bottom" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.22, 0.43, 0.3)]
+                double size = 1
+                float3 xformOp:scale = (0.111, 0.109, 0.004)
+                double3 xformOp:translate = (0.175, 0.153, 0.002)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "XNear" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.22, 0.43, 0.3)]
+                double size = 1
+                float3 xformOp:scale = (0.006, 0.11, 0.067)
+                double3 xformOp:translate = (0.122, 0.153, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "YNear" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.22, 0.43, 0.3)]
+                double size = 1
+                float3 xformOp:scale = (0.103, 0.006, 0.067)
+                double3 xformOp:translate = (0.175, 0.101, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "XFar" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.22, 0.43, 0.3)]
+                double size = 1
+                float3 xformOp:scale = (0.006, 0.11, 0.067)
+                double3 xformOp:translate = (0.22799999999999998, 0.153, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Cube "YFar" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                color3f[] primvars:displayColor = [(0.22, 0.43, 0.3)]
+                double size = 1
+                float3 xformOp:scale = (0.103, 0.006, 0.067)
+                double3 xformOp:translate = (0.175, 0.205, 0.0375)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem0" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.10791200118615167
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9978849278316461, 0, 0.06500515984466707, 0)
+                double3 xformOp:translate = (0.221, 0.179, 0.0575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf0"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.37, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.228, 0.179, 0.111)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem1" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.1183034793610536
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.995120360801898, -0.09694255053005657, 0.018374150707656967, 0)
+                double3 xformOp:translate = (0.21616311896062462, 0.19041267819554183, 0.062)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf1"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.395, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.21832623792124925, 0.20182535639108368, 0.12)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem2" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.10851860103718974
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9964953778539909, -0.06522595647091632, -0.05236923255200522, 0)
+                double3 xformOp:translate = (0.20833688103937537, 0.18605342302750966, 0.0575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf2"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.42, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.20267376207875074, 0.19310684605501935, 0.111)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem3" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.11740224346693191
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9970095476110249, 0.06025931882495311, -0.04838157156616797, 0)
+                double3 xformOp:translate = (0.20833688103937537, 0.17194657697249033, 0.062)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf3"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.445, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.20267376207875074, 0.16489315394498064, 0.12)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+
+            def Capsule "Stem4" (
+                prepend apiSchemas = ["PhysicsCollisionAPI"]
+            )
+            {
+                double height = 0.10949298255564709
+                bool physics:collisionEnabled = 0
+                color3f[] primvars:displayColor = [(0.16, 0.33, 0.16)]
+                double radius = 0.0017
+                quatd xformOp:orient = (0.9942916013118678, 0.10483046558227863, 0.019869198435886356, -0)
+                double3 xformOp:translate = (0.21616311896062462, 0.16758732180445815, 0.0575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Sphere "Leaf4"
+            {
+                color3f[] primvars:displayColor = [(0.13, 0.47, 0.12)]
+                double radius = 1
+                float3 xformOp:scale = (0.01, 0.014, 0.007)
+                double3 xformOp:translate = (0.21832623792124925, 0.1561746436089163, 0.111)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+        }
+    }
+
+    def "Water"
+    {
+        def Xform "D000" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D001" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D002" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D003" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D004" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D005" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D006" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D007" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D008" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D009" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D010" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D011" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D012" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D013" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D014" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D015" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D016" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D017" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D018" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D019" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D020" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D021" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D022" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D023" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D024" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D025" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D026" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D027" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D028" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D029" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D030" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D031" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D032" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D033" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D034" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.006, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D035" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D036" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D037" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D038" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D039" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D040" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D041" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.012, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D042" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D043" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D044" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D045" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D046" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D047" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D048" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.018000000000000002, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D049" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D050" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D051" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D052" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D053" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D054" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D055" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D056" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D057" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D058" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D059" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D060" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D061" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D062" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D063" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D064" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D065" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D066" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D067" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D068" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D069" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D070" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D071" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D072" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D073" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D074" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D075" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D076" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D077" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D078" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D079" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D080" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D081" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D082" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D083" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.006, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D084" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D085" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D086" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D087" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D088" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D089" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D090" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.012, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D091" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D092" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D093" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D094" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D095" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D096" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D097" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.018000000000000002, 0.018000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D098" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D099" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D100" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D101" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D102" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D103" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D104" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D105" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D106" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D107" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D108" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D109" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D110" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D111" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D112" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D113" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D114" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D115" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D116" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D117" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D118" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D119" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D120" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D121" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D122" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D123" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D124" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D125" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D126" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D127" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D128" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D129" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D130" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D131" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D132" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.006, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D133" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D134" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D135" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D136" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D137" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D138" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D139" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.012, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D140" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D141" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D142" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D143" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D144" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D145" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D146" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.018000000000000002, 0.024)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D147" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D148" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D149" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D150" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D151" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D152" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D153" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D154" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D155" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D156" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D157" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D158" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D159" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D160" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D161" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D162" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D163" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D164" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D165" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D166" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D167" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, -0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D168" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D169" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D170" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D171" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D172" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D173" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D174" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D175" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D176" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D177" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D178" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D179" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D180" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D181" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.006, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D182" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D183" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D184" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D185" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D186" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D187" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D188" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.012, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D189" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.018000000000000002, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D190" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.012, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D191" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (-0.006, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D192" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D193" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.006, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D194" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.012, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+
+        def Xform "D195" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.000074
+            double3 xformOp:translate = (0.018000000000000002, 0.018000000000000002, 0.030000000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Sphere "Drop" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.00029
+                float physxCollision:restOffset = 0
+                color3f[] primvars:displayColor = [(0.27, 0.61, 0.89)]
+                double radius = 0.0026
+            }
+        }
+    }
+
+    def Cylinder "Coaster"
+    {
+        double height = 0.001
+        color3f[] primvars:displayColor = [(0.56, 0.46, 0.33)]
+        double radius = 0.056
+        double3 xformOp:translate = (0, 0, 0.0005)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+}
+
