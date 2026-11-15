@@ -1,0 +1,190 @@
+#usda 1.0
+(
+    defaultPrim = "DoseBeans"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "DoseBeans"
+{
+    def Sphere "Bean00" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean01" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean02" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean03" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.011, -0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean04" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.011, 0, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean05" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.011, 0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean06" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.022, -0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean07" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.022, 0, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean08" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.022, 0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean09" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.033, -0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean10" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.033, 0, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Bean11" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00017
+        custom float physxCollision:contactOffset = 0.00048
+        custom float physxCollision:restOffset = 0
+        custom bool physxRigidBody:enableCCD = 1
+        custom float physxRigidBody:maxDepenetrationVelocity = 0.18
+        color3f[] primvars:displayColor = [(0.22, 0.1, 0.055)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.033, 0.011, 0.014)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+}
+
