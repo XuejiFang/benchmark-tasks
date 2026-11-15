@@ -1,0 +1,17 @@
+{
+  "title": "Separate nested bowls and lay out two breakfast settings",
+  "category": "Societal relevance",
+  "keywords": [
+    "bimanual",
+    "unstacking",
+    "nested bowls",
+    "table setting"
+  ],
+  "instruction": "Separate the two stacked bowls. Put the teal bowl upright in the center of the teal mat and the cream bowl upright in the center of the tan mat. Place the dark-handled spoon on the bare tabletop beside the teal mat and the light-handled spoon beside the tan mat, each between the two mats with its head pointing toward the robot bases. Release all four objects and leave them resting on their places.",
+  "context": "A shared kitchen returns to meal service when stacked clean tableware is separated and arranged into two distinct place settings.",
+  "setup": "Two glazed ceramic bowls (both Ø15.8 × 4.6 cm, 310 g), nested teal above cream. Two 17.1 × 4.2 × 0.8 cm spoons, each with a metal head and coated handle. A 68 × 100 × 4.5 cm wood tabletop at 75 cm height with flat 23 × 23 × 0.4 cm teal and tan placemats at opposite sides. Two YAM arms on 15 × 15 × 83 cm stands alongside the table and a 300 × 300 × 4 cm concrete floor. Reproduce the fixed orientations and positions listed in the README.",
+  "scoring": "0.25 per correctly placed, released object. For each of the final 20 steps, its centre is within 26 mm horizontally and 8 mm vertically of its specified resting pose, with at most 3 mm of displacement, 2 degrees of angular drift and 0.1 N total gripper contact. Its up axis must be within 5.13 degrees of vertical. Each spoon head must also point within 15.21 degrees of negative X, toward the robot bases.",
+  "run_limit": "2,400 control steps (120 simulated seconds at 20 Hz)",
+  "fidelity": "Glazed bowls have open concave interiors represented by convex wall segments and a separate base collider. Spoons, mats and furniture are rigid. The simulation represents dry tableware handling without ceramic fracture or mat deformation.",
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+}
