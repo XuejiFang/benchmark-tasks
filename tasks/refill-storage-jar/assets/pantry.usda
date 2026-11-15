@@ -1,0 +1,2010 @@
+#usda 1.0
+(
+    defaultPrim = "Pantry"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Pantry"
+{
+    def "StorageJar"
+    {
+        def Cylinder "Bottom" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            double height = 0.005
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            double radius = 0.055
+            double3 xformOp:translate = (0.205, 0, 0.0025)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Mesh "Wall00" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.2569999, -0.000098017634, 0.004), (0.2599999, -0.00010367249, 0.004), (0.25727597, 0.017094502, 0.004), (0.25442457, 0.016162075, 0.004), (0.2569999, -0.000098017634, 0.088), (0.2599999, -0.00010367249, 0.088), (0.25727597, 0.017094502, 0.088), (0.25442457, 0.016162075, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall01" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.25448513, 0.015975635, 0.004), (0.25734004, 0.016897306, 0.004), (0.24943492, 0.032412004, 0.004), (0.2470112, 0.030644076, 0.004), (0.25448513, 0.015975635, 0.088), (0.25734004, 0.016897306, 0.088), (0.24943492, 0.032412004, 0.088), (0.2470112, 0.030644076, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall02" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.24712642, 0.030485481, 0.004), (0.2495568, 0.032244258, 0.004), (0.23724426, 0.044556793, 0.004), (0.23548548, 0.04212642, 0.004), (0.24712642, 0.030485481, 0.088), (0.2495568, 0.032244258, 0.088), (0.23724426, 0.044556793, 0.088), (0.23548548, 0.04212642, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall03" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.23564407, 0.042011194, 0.004), (0.237412, 0.04443492, 0.004), (0.2218973, 0.052340053, 0.004), (0.22097564, 0.04948514, 0.004), (0.23564407, 0.042011194, 0.088), (0.237412, 0.04443492, 0.088), (0.2218973, 0.052340053, 0.088), (0.22097564, 0.04948514, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall04" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.22116208, 0.049424563, 0.004), (0.2220945, 0.052275978, 0.004), (0.20489633, 0.054999903, 0.004), (0.20490198, 0.051999908, 0.004), (0.22116208, 0.049424563, 0.088), (0.2220945, 0.052275978, 0.088), (0.20489633, 0.054999903, 0.088), (0.20490198, 0.051999908, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall05" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.20509802, 0.051999908, 0.004), (0.20510367, 0.054999903, 0.004), (0.18790549, 0.052275978, 0.004), (0.18883793, 0.049424563, 0.004), (0.20509802, 0.051999908, 0.088), (0.20510367, 0.054999903, 0.088), (0.18790549, 0.052275978, 0.088), (0.18883793, 0.049424563, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall06" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.18902436, 0.04948514, 0.004), (0.18810269, 0.052340053, 0.004), (0.17258799, 0.04443492, 0.004), (0.17435592, 0.042011194, 0.004), (0.18902436, 0.04948514, 0.088), (0.18810269, 0.052340053, 0.088), (0.17258799, 0.04443492, 0.088), (0.17435592, 0.042011194, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall07" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.17451452, 0.04212642, 0.004), (0.17275575, 0.044556793, 0.004), (0.1604432, 0.032244258, 0.004), (0.16287358, 0.030485481, 0.004), (0.17451452, 0.04212642, 0.088), (0.17275575, 0.044556793, 0.088), (0.1604432, 0.032244258, 0.088), (0.16287358, 0.030485481, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall08" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.16298881, 0.030644076, 0.004), (0.16056508, 0.032412004, 0.004), (0.15265995, 0.016897306, 0.004), (0.15551487, 0.015975635, 0.004), (0.16298881, 0.030644076, 0.088), (0.16056508, 0.032412004, 0.088), (0.15265995, 0.016897306, 0.088), (0.15551487, 0.015975635, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall09" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.15557544, 0.016162075, 0.004), (0.15272403, 0.017094502, 0.004), (0.1500001, -0.00010367249, 0.004), (0.15300009, -0.000098017634, 0.004), (0.15557544, 0.016162075, 0.088), (0.15272403, 0.017094502, 0.088), (0.1500001, -0.00010367249, 0.088), (0.15300009, -0.000098017634, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall10" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.15300009, 0.000098017634, 0.004), (0.1500001, 0.00010367249, 0.004), (0.15272403, -0.017094502, 0.004), (0.15557544, -0.016162075, 0.004), (0.15300009, 0.000098017634, 0.088), (0.1500001, 0.00010367249, 0.088), (0.15272403, -0.017094502, 0.088), (0.15557544, -0.016162075, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall11" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.15551487, -0.015975635, 0.004), (0.15265995, -0.016897306, 0.004), (0.16056508, -0.032412004, 0.004), (0.16298881, -0.030644076, 0.004), (0.15551487, -0.015975635, 0.088), (0.15265995, -0.016897306, 0.088), (0.16056508, -0.032412004, 0.088), (0.16298881, -0.030644076, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall12" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.16287358, -0.030485481, 0.004), (0.1604432, -0.032244258, 0.004), (0.17275575, -0.044556793, 0.004), (0.17451452, -0.04212642, 0.004), (0.16287358, -0.030485481, 0.088), (0.1604432, -0.032244258, 0.088), (0.17275575, -0.044556793, 0.088), (0.17451452, -0.04212642, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall13" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.17435592, -0.042011194, 0.004), (0.17258799, -0.04443492, 0.004), (0.18810269, -0.052340053, 0.004), (0.18902436, -0.04948514, 0.004), (0.17435592, -0.042011194, 0.088), (0.17258799, -0.04443492, 0.088), (0.18810269, -0.052340053, 0.088), (0.18902436, -0.04948514, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall14" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.18883793, -0.049424563, 0.004), (0.18790549, -0.052275978, 0.004), (0.20510367, -0.054999903, 0.004), (0.20509802, -0.051999908, 0.004), (0.18883793, -0.049424563, 0.088), (0.18790549, -0.052275978, 0.088), (0.20510367, -0.054999903, 0.088), (0.20509802, -0.051999908, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall15" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.20490198, -0.051999908, 0.004), (0.20489633, -0.054999903, 0.004), (0.2220945, -0.052275978, 0.004), (0.22116208, -0.049424563, 0.004), (0.20490198, -0.051999908, 0.088), (0.20489633, -0.054999903, 0.088), (0.2220945, -0.052275978, 0.088), (0.22116208, -0.049424563, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall16" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.22097564, -0.04948514, 0.004), (0.2218973, -0.052340053, 0.004), (0.237412, -0.04443492, 0.004), (0.23564407, -0.042011194, 0.004), (0.22097564, -0.04948514, 0.088), (0.2218973, -0.052340053, 0.088), (0.237412, -0.04443492, 0.088), (0.23564407, -0.042011194, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall17" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.23548548, -0.04212642, 0.004), (0.23724426, -0.044556793, 0.004), (0.2495568, -0.032244258, 0.004), (0.24712642, -0.030485481, 0.004), (0.23548548, -0.04212642, 0.088), (0.23724426, -0.044556793, 0.088), (0.2495568, -0.032244258, 0.088), (0.24712642, -0.030485481, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall18" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.2470112, -0.030644076, 0.004), (0.24943492, -0.032412004, 0.004), (0.25734004, -0.016897306, 0.004), (0.25448513, -0.015975635, 0.004), (0.2470112, -0.030644076, 0.088), (0.24943492, -0.032412004, 0.088), (0.25734004, -0.016897306, 0.088), (0.25448513, -0.015975635, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall19" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.25442457, -0.016162075, 0.004), (0.25727597, -0.017094502, 0.004), (0.2599999, 0.00010367249, 0.004), (0.2569999, 0.000098017634, 0.004), (0.25442457, -0.016162075, 0.088), (0.25727597, -0.017094502, 0.088), (0.2599999, 0.00010367249, 0.088), (0.2569999, 0.000098017634, 0.088)]
+            color3f[] primvars:displayColor = [(0.27, 0.59, 0.53)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def "OtherJar"
+    {
+        def Cylinder "Bottom" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+        )
+        {
+            double height = 0.005
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            double radius = 0.049
+            double3 xformOp:translate = (0.205, 0.15, 0.0025)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Mesh "Wall00" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.25099993, 0.1499133, 0.004), (0.25399992, 0.14990763, 0.004), (0.25157315, 0.16522965, 0.004), (0.24872173, 0.16429722, 0.004), (0.25099993, 0.1499133, 0.082), (0.25399992, 0.14990763, 0.082), (0.25157315, 0.16522965, 0.082), (0.24872173, 0.16429722, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall01" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.24877532, 0.1641323, 0.004), (0.25163022, 0.16505396, 0.004), (0.24458747, 0.17887615, 0.004), (0.24216375, 0.17710823, 0.004), (0.24877532, 0.1641323, 0.082), (0.25163022, 0.16505396, 0.082), (0.24458747, 0.17887615, 0.082), (0.24216375, 0.17710823, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall02" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.24226569, 0.17696792, 0.004), (0.24469605, 0.1787267, 0.004), (0.23372671, 0.18969606, 0.004), (0.23196793, 0.18726568, 0.004), (0.24226569, 0.17696792, 0.082), (0.24469605, 0.1787267, 0.082), (0.23372671, 0.18969606, 0.082), (0.23196793, 0.18726568, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall03" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.23210822, 0.18716376, 0.004), (0.23387615, 0.18958747, 0.004), (0.22005397, 0.19663022, 0.004), (0.21913229, 0.19377531, 0.004), (0.23210822, 0.18716376, 0.082), (0.23387615, 0.18958747, 0.082), (0.22005397, 0.19663022, 0.082), (0.21913229, 0.19377531, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall04" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.21929722, 0.19372173, 0.004), (0.22022964, 0.19657314, 0.004), (0.20490764, 0.19899991, 0.004), (0.20491329, 0.19599992, 0.004), (0.21929722, 0.19372173, 0.082), (0.22022964, 0.19657314, 0.082), (0.20490764, 0.19899991, 0.082), (0.20491329, 0.19599992, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall05" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.20508671, 0.19599992, 0.004), (0.20509236, 0.19899991, 0.004), (0.18977036, 0.19657314, 0.004), (0.19070278, 0.19372173, 0.004), (0.20508671, 0.19599992, 0.082), (0.20509236, 0.19899991, 0.082), (0.18977036, 0.19657314, 0.082), (0.19070278, 0.19372173, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall06" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.1908677, 0.19377531, 0.004), (0.18994604, 0.19663022, 0.004), (0.17612386, 0.18958747, 0.004), (0.17789178, 0.18716376, 0.004), (0.1908677, 0.19377531, 0.082), (0.18994604, 0.19663022, 0.082), (0.17612386, 0.18958747, 0.082), (0.17789178, 0.18716376, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall07" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.17803207, 0.18726568, 0.004), (0.1762733, 0.18969606, 0.004), (0.16530395, 0.1787267, 0.004), (0.16773432, 0.17696792, 0.004), (0.17803207, 0.18726568, 0.082), (0.1762733, 0.18969606, 0.082), (0.16530395, 0.1787267, 0.082), (0.16773432, 0.17696792, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall08" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.16783625, 0.17710823, 0.004), (0.16541253, 0.17887615, 0.004), (0.15836976, 0.16505396, 0.004), (0.16122468, 0.1641323, 0.004), (0.16783625, 0.17710823, 0.082), (0.16541253, 0.17887615, 0.082), (0.15836976, 0.16505396, 0.082), (0.16122468, 0.1641323, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall09" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.16127828, 0.16429722, 0.004), (0.15842685, 0.16522965, 0.004), (0.1560001, 0.14990763, 0.004), (0.15900008, 0.1499133, 0.004), (0.16127828, 0.16429722, 0.082), (0.15842685, 0.16522965, 0.082), (0.1560001, 0.14990763, 0.082), (0.15900008, 0.1499133, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall10" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.15900008, 0.1500867, 0.004), (0.1560001, 0.15009236, 0.004), (0.15842685, 0.13477035, 0.004), (0.16127828, 0.13570277, 0.004), (0.15900008, 0.1500867, 0.082), (0.1560001, 0.15009236, 0.082), (0.15842685, 0.13477035, 0.082), (0.16127828, 0.13570277, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall11" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.16122468, 0.13586771, 0.004), (0.15836976, 0.13494603, 0.004), (0.16541253, 0.12112385, 0.004), (0.16783625, 0.122891776, 0.004), (0.16122468, 0.13586771, 0.082), (0.15836976, 0.13494603, 0.082), (0.16541253, 0.12112385, 0.082), (0.16783625, 0.122891776, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall12" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.16773432, 0.12303208, 0.004), (0.16530395, 0.121273294, 0.004), (0.1762733, 0.110303946, 0.004), (0.17803207, 0.11273432, 0.004), (0.16773432, 0.12303208, 0.082), (0.16530395, 0.121273294, 0.082), (0.1762733, 0.110303946, 0.082), (0.17803207, 0.11273432, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall13" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.17789178, 0.11283625, 0.004), (0.17612386, 0.11041253, 0.004), (0.18994604, 0.10336977, 0.004), (0.1908677, 0.106224686, 0.004), (0.17789178, 0.11283625, 0.082), (0.17612386, 0.11041253, 0.082), (0.18994604, 0.10336977, 0.082), (0.1908677, 0.106224686, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall14" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.19070278, 0.10627827, 0.004), (0.18977036, 0.10342686, 0.004), (0.20509236, 0.101000085, 0.004), (0.20508671, 0.104000084, 0.004), (0.19070278, 0.10627827, 0.082), (0.18977036, 0.10342686, 0.082), (0.20509236, 0.101000085, 0.082), (0.20508671, 0.104000084, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall15" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.20491329, 0.104000084, 0.004), (0.20490764, 0.101000085, 0.004), (0.22022964, 0.10342686, 0.004), (0.21929722, 0.10627827, 0.004), (0.20491329, 0.104000084, 0.082), (0.20490764, 0.101000085, 0.082), (0.22022964, 0.10342686, 0.082), (0.21929722, 0.10627827, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall16" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.21913229, 0.106224686, 0.004), (0.22005397, 0.10336977, 0.004), (0.23387615, 0.11041253, 0.004), (0.23210822, 0.11283625, 0.004), (0.21913229, 0.106224686, 0.082), (0.22005397, 0.10336977, 0.082), (0.23387615, 0.11041253, 0.082), (0.23210822, 0.11283625, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall17" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.23196793, 0.11273432, 0.004), (0.23372671, 0.110303946, 0.004), (0.24469605, 0.121273294, 0.004), (0.24226569, 0.12303208, 0.004), (0.23196793, 0.11273432, 0.082), (0.23372671, 0.110303946, 0.082), (0.24469605, 0.121273294, 0.082), (0.24226569, 0.12303208, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall18" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.24216375, 0.122891776, 0.004), (0.24458747, 0.12112385, 0.004), (0.25163022, 0.13494603, 0.004), (0.24877532, 0.13586771, 0.004), (0.24216375, 0.122891776, 0.082), (0.24458747, 0.12112385, 0.082), (0.25163022, 0.13494603, 0.082), (0.24877532, 0.13586771, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "Wall19" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 3, 2, 1, 4, 5, 6, 7, 0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 3, 0, 4, 7]
+            uniform token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            point3f[] points = [(0.24872173, 0.13570277, 0.004), (0.25157315, 0.13477035, 0.004), (0.25399992, 0.15009236, 0.004), (0.25099993, 0.1500867, 0.004), (0.24872173, 0.13570277, 0.082), (0.25157315, 0.13477035, 0.082), (0.25399992, 0.15009236, 0.082), (0.25099993, 0.1500867, 0.082)]
+            color3f[] primvars:displayColor = [(0.49, 0.32, 0.18)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def Xform "Carton" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxContactReportAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        bool physics:kinematicEnabled = 0
+        float physics:mass = 0.032
+        float physxContactReport:threshold = 0
+        bool physxRigidBody:enableCCD = 1
+        int physxRigidBody:solverPositionIterationCount = 24
+        int physxRigidBody:solverVelocityIterationCount = 8
+
+        def Cube "Bottom" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/CoatedCardboard>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.73, 0.65, 0.48)]
+            double size = 1
+            float3 xformOp:scale = (0.09, 0.06, 0.005)
+            double3 xformOp:translate = (0, 0, 0.0025)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Left" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/CoatedCardboard>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.73, 0.65, 0.48)]
+            double size = 1
+            float3 xformOp:scale = (0.09, 0.003, 0.126)
+            double3 xformOp:translate = (0, -0.029, 0.063)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Right" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/CoatedCardboard>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.73, 0.65, 0.48)]
+            double size = 1
+            float3 xformOp:scale = (0.09, 0.003, 0.126)
+            double3 xformOp:translate = (0, 0.029, 0.063)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Back" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/CoatedCardboard>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.73, 0.65, 0.48)]
+            double size = 1
+            float3 xformOp:scale = (0.003, 0.057, 0.126)
+            double3 xformOp:translate = (-0.044, 0, 0.063)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "Spout" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/CoatedCardboard>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.73, 0.65, 0.48)]
+            double size = 1
+            float3 xformOp:scale = (0.003, 0.057, 0.126)
+            double3 xformOp:translate = (0.044, 0, 0.063)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "LeftGrip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/RubberGrip>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.29, 0.28, 0.24)]
+            double size = 1
+            float3 xformOp:scale = (0.018, 0.034, 0.012)
+            double3 xformOp:translate = (-0.013, 0.046, 0.08)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "RightGrip" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Pantry/RubberGrip>
+            float physxCollision:contactOffset = 0.00065
+            float physxCollision:restOffset = 0
+            color3f[] primvars:displayColor = [(0.29, 0.28, 0.24)]
+            double size = 1
+            float3 xformOp:scale = (0.018, 0.034, 0.012)
+            double3 xformOp:translate = (-0.013, -0.046, 0.08)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Material "CoatedCardboard" (
+        prepend apiSchemas = ["PhysicsMaterialAPI", "PhysxMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.19
+        float physics:restitution = 0
+        float physics:staticFriction = 0.26
+        uniform token physxMaterial:frictionCombineMode = "min"
+    }
+
+    def Material "RubberGrip" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.65
+        float physics:staticFriction = 0.85
+    }
+
+    def Sphere "Leaf00" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf01" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf02" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf03" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf04" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf05" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf06" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf07" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf08" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf09" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf10" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf11" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf12" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf13" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf14" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.005, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf15" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf16" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf17" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf18" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf19" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.015, 0.012)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf20" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf21" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf22" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf23" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf24" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf25" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf26" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf27" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf28" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf29" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf30" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf31" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf32" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf33" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf34" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.005, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf35" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf36" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf37" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf38" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf39" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.015, 0.020999999999999998)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf40" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf41" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf42" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf43" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf44" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf45" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf46" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf47" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf48" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf49" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf50" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf51" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf52" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf53" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf54" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.005, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf55" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf56" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf57" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf58" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf59" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.015, 0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf60" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf61" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf62" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf63" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf64" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf65" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, -0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf66" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, -0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf67" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, -0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf68" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, -0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf69" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, -0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf70" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf71" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf72" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf73" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf74" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.005, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf75" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.024, 0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf76" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (-0.012, 0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf77" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0, 0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf78" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.012, 0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def Sphere "Leaf79" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxRigidBodyAPI"]
+    )
+    {
+        float physics:mass = 0.00016
+        float physxCollision:contactOffset = 0.00048
+        float physxCollision:restOffset = 0
+        bool physxRigidBody:enableCCD = 1
+        float physxRigidBody:linearDamping = 0.12
+        float physxRigidBody:maxDepenetrationVelocity = 0.16
+        color3f[] primvars:displayColor = [(0.51, 0.38, 0.19)]
+        double radius = 0.0037
+        double3 xformOp:translate = (0.024, 0.015, 0.03899999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+}
+
