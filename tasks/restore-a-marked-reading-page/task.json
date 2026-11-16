@@ -1,7 +1,12 @@
 {
   "title": "Put a book on its stand and turn the marked page",
   "category": "Societal relatability",
-  "keywords": ["bimanual book handling", "page turning", "reading stand", "contact-driven hinges"],
+  "keywords": [
+    "bimanual book handling",
+    "page turning",
+    "reading stand",
+    "contact-driven hinges"
+  ],
   "instruction": "Pick the green book up with both arms and set it on the wooden reading stand. Open its cover, turn the blue-marked page, and release the book.",
   "context": "A reader wants to resume from a marked place. Preparing the book on a stand makes the page available for reading hands-free.",
   "setup": "A closed green notebook made of cloth-backed cardboard and paper lies flat beside an empty wooden stand. Its body measures 167 × 225 × 34 mm. It has two cloth carry tabs and a blue 34 × 18 × 3 mm paper marker. The stand has a 326 × 256 × 28 mm plinth, a raised support for the open cover, and four 14 mm wide locating stops. They sit on a 580 × 870 × 40 mm wooden table. Two YAM arms face the table. The README specifies the exact reset coordinates.",
@@ -9,5 +14,6 @@
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Use seed 0, close both book panels and place the free book flat to the right of the empty stand as seen in the setup image. Start both arms in their neutral poses.",
   "fidelity": "The book is free to move, and its cover and marked leaf turn through physical grip and contact. The marked leaf is a rigid paper proxy with a reinforced tab. The remaining bound pages form a single block. The stand has physical locating guides and supports the open cover.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-JJDRXU"
 }
