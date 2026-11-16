@@ -1,7 +1,12 @@
 {
   "title": "Set and arm a bedside alarm clock",
   "category": "Societal relatability",
-  "keywords": ["alarm clock", "physical buttons", "press and release", "stateful device"],
+  "keywords": [
+    "alarm clock",
+    "physical buttons",
+    "press and release",
+    "stateful device"
+  ],
   "instruction": "Set the alarm to 7:15 AM and arm it. Leave the other clock settings unchanged.",
   "context": "A changed morning schedule needs both the right alarm time and an enabled alarm. A clock set to the right time with the alarm disabled will stay silent.",
   "setup": "On a wooden nightstand is a fixed 150 × 158 × 30 mm polymer bedside clock with a clear top display initially showing 06:25. Three separate 26 × 26 × 8 mm buttons have spring return and 3.2 mm of physical travel. The blue plus button advances hours, the gray minus button moves the time back five minutes, and the orange button toggles the alarm. The orange indicator starts off. Two YAM arms operate at worktop height.",
@@ -9,5 +14,6 @@
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Reset the alarm to 06:25 and disarm it. Let the three buttons return and start with the YAM arms in their neutral poses.",
   "fidelity": "Keys move through contact and spring return. The clock logic reads real button travel and updates the segment display and enabled indicator. The alarm time is frozen during the trial. The simulation does not play the alarm sound.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-8SGSNM"
 }
