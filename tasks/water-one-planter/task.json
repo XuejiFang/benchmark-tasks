@@ -1,7 +1,12 @@
 {
   "title": "Water one planter and save half the pitcher",
   "category": "Societal relatability",
-  "keywords": ["dosed watering", "partial pour", "water reserve", "bimanual"],
+  "keywords": [
+    "dosed watering",
+    "partial pour",
+    "water reserve",
+    "bimanual"
+  ],
   "instruction": "Pour about half the water from the teal pitcher into the terracotta planter. Save the rest in the pitcher for later, keep the green planter dry, and return the pitcher upright to its coaster. Release the pitcher.",
   "context": "Seedlings sharing a small pitcher can need watering at different times. Starting with two doses requires the operator to stop partway through the pour, preserve the next dose, and leave the neighboring planter dry.",
   "setup": "On a wooden 650 × 720 mm worktop are an upright 69 × 69 × 64 mm teal polypropylene pitcher with two rubberized tabs, a 112 mm cork coaster outline, and two 111 × 109 × 71 mm planters, terracotta and glazed green. Both planters have a seedling toward the back. The pitcher starts with 196 water proxies. The README gives exact reset positions and dimensions, including the YAM mounts.",
@@ -9,5 +14,6 @@
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Use seed 0. Put the pitcher upright on the coaster and reload all 196 drops. Empty both planters before resetting the arms.",
   "fidelity": "Each drop is an equally weighted rigid proxy moved by gravity and physical contact. Their flow is approximate. The plants are decorative and soil absorption is omitted. The pitcher is free, both planters are fixed, and the expert moves only the robot joints and grippers.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-F6GQYP"
 }
