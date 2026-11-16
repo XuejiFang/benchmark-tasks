@@ -1,7 +1,13 @@
 {
   "title": "Refill and reseal a pantry storage jar",
   "category": "Societal relatability",
-  "keywords": ["bimanual", "dry pouring", "lid placement", "pantry", "granular transfer"],
+  "keywords": [
+    "bimanual",
+    "dry pouring",
+    "lid placement",
+    "pantry",
+    "granular transfer"
+  ],
   "instruction": "Remove the green lid from the green storage jar and set it flat on the worktop. Grasp both side tabs of the open cardboard carton and pour the dry grains into the green jar. Keep grains out of the brown jar and off the worktop. Return the carton upright to where it started, then reseat the green lid and release it.",
   "context": "Refilling a household dry-food container combines loose-material transfer, spill control and accurate closure. The second jar is an alternate destination.",
   "setup": "A wooden 620 × 620 mm worktop with an open 90 × 60 × 126 mm cardboard carton containing 80 dry particles of 7.4 mm diameter, a closed green polymer jar of 104 mm inner diameter and 88 mm height, and an empty uncovered brown polymer jar of 92 mm inner diameter and 82 mm height. The green cap has a shallow locator and a grasp tab. The two fixed-base YAM arms face the worktop. See the README for full dimensions and starting positions.",
@@ -9,5 +15,6 @@
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Reset restores all 80 grains to the upright carton and reseats the lid on the empty green jar.",
   "fidelity": "The carton, lid and grains are physically simulated as free rigid bodies. The two jars are held fixed to the worktop. The particles approximate dry grains as stiff spheres, and the lid seats using a shallow locating ring. All expert motions use ordinary joint and gripper commands.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-9JP2MV"
 }
