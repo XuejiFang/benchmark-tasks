@@ -14,5 +14,6 @@
   "run_limit": "2,400 control steps (120 seconds at 20 Hz)",
   "reset_notes": "Reset the seat to horizontal, the keeper to its spring-rest position, and both arms to READY. Use seed 0.",
   "fidelity": "The source seat has rigid hinges and collision geometry. Its effective centre of mass is moved near the pivot to approximate a counterbalanced seat. The added rail and spring keeper are rigid; water, deformation and wear are omitted.",
-  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0",
+  "media": "M-DBV5RC"
 }
