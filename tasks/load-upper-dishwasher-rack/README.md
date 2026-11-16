@@ -12,6 +12,8 @@ Run from the task folder with fresh output directories.
 isaac_python=/data/IsaacLab-Arena/.venv/bin/python
 export OMNI_KIT_ACCEPT_EULA=YES OPENBLAS_NUM_THREADS=1
 
+python3 fetch_assets.py
+
 "$isaac_python" run_dishwasher_rail_probe.py --usd assets/dishwasher/dishwasher_ldfn4542b.usd \
   --load assets/cups --place --output runs/expert
 "$isaac_python" audit_dishwasher_trial.py runs/expert
@@ -50,4 +52,4 @@ Coordinates are metres in the dual-arm frame. Positive X points into the applian
 - **0.30 per cup.** In the final 20 observations, the cup stays within 32 mm of its designated rack-local site, with its opening direction within 20° of straight down and the combined fingertip contact at most 0.1 N. Sites are `(0.154, -0.099, 0.0773)` m and `(0.167, -0.190, 0.078)` m.
 - **0.20 for completion.** After opening and loading both cups, the released rack sits within 10 mm of its starting position and the wooden cup stays within 18 mm and 12° of its upright start. Rack contact force is at most 0.1 N throughout the final observations.
 
-The appliance starts anchored with the door held horizontal. The rack retains its source rail and roller, and the cups move through gravity and physical contact. The setup packages all source composition dependencies and identifies the licensed dishwasher asset in [ATTRIBUTION.md](ATTRIBUTION.md).
+The appliance starts anchored with the door held horizontal. The rack retains its source rail and roller, and the cups move through gravity and physical contact. `fetch_assets.py` restores the pinned source composition and cup dependencies and verifies their SHA-256 hashes. [ATTRIBUTION.md](ATTRIBUTION.md) identifies the licensed dishwasher asset.
