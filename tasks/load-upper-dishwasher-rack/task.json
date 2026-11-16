@@ -1,7 +1,12 @@
 {
   "title": "Load two washable cups into the upper dishwasher rack",
   "category": "Societal relatability",
-  "keywords": ["dishwasher", "bimanual", "articulated rack", "dish orientation"],
+  "keywords": [
+    "dishwasher",
+    "bimanual",
+    "articulated rack",
+    "dish orientation"
+  ],
   "instruction": "Pull the upper rack out by its orange tab. Load the tall blue cup and the short light-tan cup into the upper rack with their openings facing down. Leave the dark wooden cup on its side worktop. Push the loaded upper rack back to its starting position and release it.",
   "context": "Loading a dishwasher requires keeping hand-wash items out, putting cups in a position that sheds water and returning the loaded rack without dislodging its contents.",
   "setup": "An open 665 × 612 × 858 mm steel and polymer dishwasher with an initially retracted wire upper rack and a 32 × 17 × 21 mm orange polymer pull tab. A tall blue ceramic cup (70 × 102 mm) and a short light-tan ceramic cup (70 × 96 mm) start upside down on one wood worktop. A dark wooden cup (70 × 64 mm) starts upright on the other. Two YAM arms stand on 590 mm pedestals. See the README for exact poses and worktop dimensions.",
@@ -9,5 +14,6 @@
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Restore both washable cups upside down on their worktop, restore the wooden cup upright on its own worktop and retract the upper rack. Keep the dishwasher door horizontal.",
   "fidelity": "The dishwasher has a physical sliding rack, a rail and roller, and a real source wire-basket mesh. The appliance base and door are held in the reset state. All cups are free rigid bodies with hollow walls and the task addresses loading before the wash cycle. The proxy ceramic and wood cups use rigid collision geometry.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-FPR4UQ"
 }
