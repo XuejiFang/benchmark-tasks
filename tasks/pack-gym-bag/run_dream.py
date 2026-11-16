@@ -14,12 +14,7 @@ from types import SimpleNamespace
 
 import numpy as np
 
-INSTRUCTION = (
-    'Pack the teal capped water bottle on the coffee-table tray, both blue-and-white '
-    'running shoes on the floor, the black wallet on the sofa, and the over-ear '
-    'headphones on the sofa into the open olive-green gym bag. Leave all five objects '
-    'fully inside the bag, let go of them, and move both grippers clear.'
-)
+INSTRUCTION = json.loads(Path(__file__).with_name('task.json').read_text())['instruction']
 
 
 def main():
@@ -74,7 +69,7 @@ def main():
                      ('inspect-robots', 'inspect-robots-dream', 'dreamlabs-client')},
     }
     files = [Path(__file__), *[Path(__file__).with_name(n) for n in
-             ('runtime.py', 'task.py', 'layout.py', 'geometry.py', 'packing_observer.py')]]
+             ('runtime.py', 'task.py', 'task.json', 'layout.py', 'geometry.py', 'packing_observer.py')]]
     import shutil
     for file in files:
         shutil.copy2(file, args.output / file.name)

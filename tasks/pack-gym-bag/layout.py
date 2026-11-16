@@ -25,6 +25,21 @@ ITEMS={
  'wallet':dict(xy=(.62,1.35),bottom=.558,R=np.eye(3),mass=.12,arm='right',dest=(.250,-.100),destR=rz(180),grasp=(0,0,.01504/2+.013),yaw=0),
  'headphones':dict(xy=(.83,1.40),bottom=.558,R=rx(90),mass=.25,arm='right',dest=(.175,.075),destR=rz(-90)@rx(90),grasp=(-.089,.04375,.04173+.013),yaw=90),
 }
+PACKING_POINTS = {'bottle': 20, 'shoe_left': 10, 'shoe_right': 10, 'wallet': 20, 'headphones': 20}
+SHOES = ('shoe_left', 'shoe_right')
+ACCESSORIES = ('wallet', 'headphones')
+MIN_END_GAP = .12
+
+
+def end_gap(bounds):
+    """Signed clearance along the bag's long axis, allowing either end for the shoes."""
+    shoe_min = min(bounds[name][0] for name in SHOES)
+    shoe_max = max(bounds[name][1] for name in SHOES)
+    accessory_min = min(bounds[name][0] for name in ACCESSORIES)
+    accessory_max = max(bounds[name][1] for name in ACCESSORIES)
+    return float(max(accessory_min - shoe_max, shoe_min - accessory_max))
+
+
 BAG_POS=np.array([.55,.65,.182]); BAG_R=rz(90); BAG_SCALE=(1.20,1.65,1.)
 def root_pose(n,xy,bottom,R,points=None):
     pts=(corners(n) if points is None else points)@R.T;mid=(pts.min(0)+pts.max(0))/2

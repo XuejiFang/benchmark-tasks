@@ -1,6 +1,6 @@
-# Pack a gym bag from the floor, coffee table and sofa
+# Pack a gym bag and keep used shoes away from clean accessories
 
-Put the five objects named in [task.json](task.json) in the open gym bag. The floor, tray and sofa start positions demand different grasp heights and approach clearances. Both shoes need to fit alongside the bottle, wallet and headphones, and each item must remain inside after release.
+Put the five objects named in [task.json](task.json) in the open gym bag. Keep the used shoes together at one end and leave at least 12 cm between them and the wallet and headphones at the other end. Measure the gap edge to edge along the long axis of the bag. Both ends are valid for the shoes.
 
 ## Run and score
 
@@ -19,9 +19,11 @@ export OMNI_KIT_ACCEPT_EULA=YES OPENBLAS_NUM_THREADS=1
 "$isaac_python" verify_run.py runs/expert
 ```
 
-The model receives three RGB cameras at 320 × 176 and measured dual-arm joint/gripper state. Dream-1 ran 3,000 actions at 20 Hz, including the adapter's initial hold while gathering observations. The submitted rollout took about 8.3 minutes of wall-clock time including network latency and reset, and 150 simulated seconds. The expert uses measured simulator geometry for grasp planning and commands the same robot actuators. Its successful demonstration takes approximately 130 simulated seconds. Both scores come from the final state after the same continuous 40-step qualification window. The scorer permits an object to rest on another object in the bag.
+The model receives three RGB cameras at 320 × 176 and measured dual-arm joint/gripper state. A trial allows up to 3,000 actions at 20 Hz, including the adapter's initial hold while gathering observations, for 150 simulated seconds. The expert uses measured simulator geometry for grasp planning and commands the same robot actuators. Both scores come from the final state after the same continuous 40-step qualification window. The scorer permits an object to rest on another object in the bag.
 
-The output contains `result.json`, `trace.jsonl`, mesh vertices for offline scoring and synchronized camera streams in their own timelines. `audit_dream_run.py` checks the model's final score, source snapshots and actual API requests. `verify_run.py` checks the expert's final score by recomputing mesh containment, release and settling from its trace. The Dream model output is scored separately from the scripted demonstration and is 0.0 in the supplied submission evidence. Check the result files and the audits in addition to the process exit code.
+The output contains `result.json`, `trace.jsonl`, mesh vertices for offline scoring and synchronized camera streams in their own timelines. `audit_dream_run.py` checks the model's final score, source snapshots and actual API requests. `verify_run.py` checks the expert's final score by recomputing mesh containment, separation, release and settling from its trace. Check the result files and the audits in addition to the process exit code.
+
+The reference expert scores 1.0 in 2,590 controls (129.5 simulated seconds). The final 40 controls maintain at least 15.72 cm of separation. Dream-1 scores 0.0 after 3,000 controls (150 simulated seconds).
 
 ## Reproduce the starting configuration
 

@@ -9,16 +9,18 @@ import json
 from pathlib import Path
 import numpy as np
 from scipy.spatial.transform import Rotation
-from layout import ITEMS, BAG_POS, BAG_R, WORLD_ROT, task_pos, corners
+from layout import ACCESSORIES, BAG_POS, BAG_R, ITEMS, MIN_END_GAP, PACKING_POINTS, SHOES, WORLD_ROT, corners, end_gap, task_pos
 
 
 def recompute(rows, vertices):
     held = dict.fromkeys(ITEMS, 0)
+    separated_steps = 0
     geometry_agrees = True
     scores = []
     finite = True
     for row in rows:
-        score = 0.
+        points_earned = 0
+        bounds = {}
         for name in ITEMS:
             state = row['objects'][name]
             values = np.r_[state['pos'], state['quat_xyzw'], state['velocity'],
@@ -27,6 +29,7 @@ def recompute(rows, vertices):
             rotation = Rotation.from_quat(state['quat_xyzw']).as_matrix()
             cloud = (vertices[name] @ rotation.T + state['pos'] - task_pos(BAG_POS)) @ (WORLD_ROT @ BAG_R)
             low, high = cloud.min(0), cloud.max(0)
+            bounds[name] = (low[0], high[0])
             geometry_agrees &= bool(np.allclose(low, state['bag_min'], atol=1e-6) and
                                     np.allclose(high, state['bag_max'], atol=1e-6))
             center = (corners(name) @ rotation.T + state['pos']).mean(0)
@@ -39,8 +42,13 @@ def recompute(rows, vertices):
             )
             held[name] = held[name] + 1 if qualifies else 0
             if held[name] >= 40:
-                score += .125 if name.startswith('shoe') else .25
-        scores.append(score)
+                points_earned += PACKING_POINTS[name]
+        gap = end_gap(bounds)
+        if all(held[name] > 0 for name in (*SHOES, *ACCESSORIES)) and gap >= MIN_END_GAP:
+            separated_steps += 1
+        else:
+            separated_steps = 0
+        scores.append((points_earned + 20 * (separated_steps >= 40)) / 100)
     return scores, geometry_agrees, finite
 
 

@@ -5,7 +5,7 @@ No planning or action generation.
 """
 import numpy as np
 from scipy.spatial.transform import Rotation
-from layout import ITEMS, BAG_POS, BAG_R, WORLD_ROT, task_pos, corners
+from layout import ACCESSORIES, BAG_POS, BAG_R, ITEMS, MIN_END_GAP, PACKING_POINTS, SHOES, WORLD_ROT, corners, end_gap, task_pos
 from geometry import vertices
 
 
@@ -19,6 +19,7 @@ class PackingObserver:
     def __init__(self, base):
         self.base = base
         self.held = dict.fromkeys(ITEMS, 0)
+        self.separated_steps = 0
         self.points = {name: vertices(name) for name in ITEMS}
 
     def capture(self, action, step):
@@ -28,7 +29,9 @@ class PackingObserver:
                          'tcp': tcp_world(base.scene[side + '_robot']).tolist()}
                   for side in ('left', 'right')}
         row = {'step': step, 'time_s': (step + 1) / 20, 'actions': np.asarray(action).tolist(),
-               'robots': robots, 'objects': {}, 'score': 0.}
+               'robots': robots, 'objects': {}}
+        points_earned = 0
+        bounds = {}
         for name, cfg in ITEMS.items():
             data = base.scene.rigid_objects[name].data
             pose = array(data.root_pose_w)[0]
@@ -42,8 +45,10 @@ class PackingObserver:
             friction = array(sensor.friction_force_matrix_w).reshape(-1, 7, 3).sum(0)
             force = normal[0] + friction[0]
             gripper_force = float(np.linalg.norm(normal[1:], axis=1).sum())
-            contained = bool(np.all(points.min(0) >= [-.30, -.18645, .0435]) and
-                             np.all(points.max(0) <= [.30, .18645, .245]))
+            low, high = points.min(0), points.max(0)
+            bounds[name] = (low[0], high[0])
+            contained = bool(np.all(low >= [-.30, -.18645, .0435]) and
+                             np.all(high <= [.30, .18645, .245]))
             supported = bool(force[2] > cfg['mass'] * 9.81 * .5)
             center = (corners(name) @ rotation.T + pos).mean(0)
             released = gripper_force < .02 and all(
@@ -51,13 +56,19 @@ class PackingObserver:
             qualified = contained and released and np.linalg.norm(velocity) < .01 and np.linalg.norm(angular) < .1
             self.held[name] = self.held[name] + 1 if qualified else 0
             if self.held[name] >= 40:
-                row['score'] += .125 if name.startswith('shoe') else .25
+                points_earned += PACKING_POINTS[name]
             row['objects'][name] = {
                 'pos': pos.tolist(), 'quat_xyzw': pose[3:].tolist(),
                 'velocity': velocity.tolist(), 'angular_velocity': angular.tolist(),
-                'bag_min': points.min(0).tolist(), 'bag_max': points.max(0).tolist(),
+                'bag_min': low.tolist(), 'bag_max': high.tolist(),
                 'bag_force': force.tolist(), 'contained': contained, 'supported': supported,
                 'grippers_clear': bool(released), 'gripper_normal_force_N': gripper_force,
                 'held_steps': self.held[name],
             }
+        gap = end_gap(bounds)
+        group_qualified = all(self.held[name] > 0 for name in (*SHOES, *ACCESSORIES))
+        self.separated_steps = self.separated_steps + 1 if group_qualified and gap >= MIN_END_GAP else 0
+        row['end_gap_m'] = gap
+        row['separated_steps'] = self.separated_steps
+        row['score'] = (points_earned + 20 * (self.separated_steps >= 40)) / 100
         return row

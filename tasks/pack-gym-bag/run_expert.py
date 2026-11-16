@@ -27,7 +27,8 @@ from inspect_robots import Scene
 from types import SimpleNamespace
 from PIL import Image,ImageDraw
 E=YamArenaEmbodiment(headless=True,cam_height=args.height,cam_width=args.width,control_hz=20,task=str(Path(__file__).with_name('task.py')),object_jitter=0)
-obs=E.reset(Scene(id="gym-packing-expert",instruction="Pack the gym bag."),seed=0)
+instruction=json.loads(Path(__file__).with_name('task.json').read_text())['instruction']
+obs=E.reset(Scene(id="gym-packing-expert",instruction=instruction),seed=0)
 base=E._base
 # This file records and evaluates state directly; skip the unused callback's
 # duplicate whole-scene AABB computation, leaving physics/action handling intact.
