@@ -1,0 +1,13 @@
+{
+  "title": "Fold a towel on a board and store it",
+  "category": "Societal relatability",
+  "keywords": ["cloth handling", "folding board", "storage compartment", "bimanual carry"],
+  "instruction": "Use the folding board to fold the tan towel. Reopen the board, place the folded towel fully inside the wooden compartment, and release it.",
+  "context": "The compartment is narrower than the unfolded towel. The towel must retain its fold when it is moved from the folding board to the compartment.",
+  "setup": "One 360 × 240 × 2 mm tan cotton proxy rests flat across an open, two-panel plastic folding board. Its fixed half is 191 × 180 × 10 mm and its hinged half is 190 × 291 × 10 mm. The flap has one 26 mm knob on each face. The empty wood compartment has a 208 × 268 × 14 mm floor, low rims and a support. The 510 × 286 × 40 mm worktop is wooden, and the floor is matte. The README records the fixed placements and robot mounts.",
+  "scoring": "Award 0.55 when the board reached at least 140 degrees with the towel at most 225 mm wide and the final 20 controls meet all next conditions. Width at most 210 mm, opposing end regions within 92 mm in the folding axis, board within 4 degrees of open, flap contact at most 0.1 N and both wrists clear of the textile by at least 22 mm. Add 0.45 if all textile nodes also stay within 102 mm in X and 127 mm in Y of the compartment center, between 3 mm below and 38 mm above its floor, with the lowest tenth percentile of cloth nodes within 6 mm of the floor.",
+  "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
+  "reset_notes": "Use seed 0. Return both arms to the start, empty the compartment, unfold the towel along the long direction of the open board and let it settle.",
+  "fidelity": "A native deformable surface models compressed cloth with effective stiffness and friction. The loose towel, hinged board and compartment interact through simulated contact. The two knobs ease regripping. Only arm and finger commands drive the expert trial.",
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+}
