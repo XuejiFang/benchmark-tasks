@@ -1,0 +1,13 @@
+{
+  "title": "Select both weight pairs and test an adjustable dumbbell",
+  "category": "Societal relatability",
+  "keywords": ["adjustable dumbbell", "selector pin", "test lift", "dual-arm"],
+  "instruction": "Move the orange selector into the lower slot. Lift the handle with both weight pairs attached, then set it down on the cradle and release it.",
+  "context": "Changing an adjustable dumbbell setting requires checking that the selected weight pairs stay attached before exercise.",
+  "setup": "Two six-axis YAM arms at a wooden worktop. An adjustable dumbbell in a fixed raised cradle comprises a 0.792 kg steel handle, a 0.504 kg blue inner weight pair, a 0.648 kg orange outer weight pair, and a 0.052 kg steel selector with an orange grip. The selector starts in the upper slot. The slots are 26 mm apart. The cradle is 242 × 235 mm with three rigid side guides. See README for poses.",
+  "scoring": "Score 0.45 when the released selector remains within 13 mm of the lower slot for the final 20 controls. Add 0.35 if both weight pairs and handle rise at least 45 mm for 12 consecutive controls with the selector within 15 mm and no direct gripper contact on the weights. Add 0.20 if all three bodies return within 15 mm of their initial positions and all gripper contacts are at most 0.12 N throughout the final 20 controls. Higher stages require all preceding stages.",
+  "run_limit": "2,400 control steps (120 seconds at 20 Hz)",
+  "reset_notes": "Reset all bodies to seed 0, with the selector in the upper slot and both arms in READY.",
+  "fidelity": "Rigid weight pairs, rigid handle and removable U-shaped selector interact through physical contact. The compact demonstrator has lighter weights and enlarged guides relative to a commercial training dumbbell.",
+  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0"
+}
