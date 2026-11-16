@@ -13,5 +13,6 @@
   "scoring": "0.25 per correctly placed, released object. For each of the final 20 steps, its centre is within 26 mm horizontally and 8 mm vertically of its specified resting pose, with at most 3 mm of displacement, 2 degrees of angular drift and 0.1 N total gripper contact. Its up axis must be within 5.13 degrees of vertical. Each spoon head must also point within 15.21 degrees of negative X, toward the robot bases.",
   "run_limit": "2,400 control steps (120 simulated seconds at 20 Hz)",
   "fidelity": "Glazed bowls have open concave interiors represented by convex wall segments and a separate base collider. Spoons, mats and furniture are rigid. The simulation represents dry tableware handling without ceramic fracture or mat deformation.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-RW22Q8"
 }
