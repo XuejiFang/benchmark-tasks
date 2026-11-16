@@ -1,0 +1,18 @@
+{
+  "title": "Fold and secure a wall-mounted shower seat",
+  "category": "Societal relatability",
+  "keywords": [
+    "folding shower seat",
+    "spring keeper",
+    "bimanual",
+    "accessibility"
+  ],
+  "instruction": "Hold the orange retaining lever clear. Fold the shower seat up to the wall, let the lever click back in front of it, and release the seat.",
+  "context": "Stowing a folding shower seat clears space for another person using the same bathroom.",
+  "setup": "A wall-mounted 450 × 430 × 52 mm shower seat with a 5.951 kg rigid polymer and metal hinged seat, starting horizontal. A 34 g orange rigid spring-return lever holds the stowed seat. A 32 mm diameter cylindrical grab rail sits on the side of the seat. Two six-axis YAM arms stand on either side of the fixture. See README for positions and the pinned source asset. The source fixture includes an 850 × 180 × 1120 mm concrete wall, a 970 × 800 × 20 mm concrete floor panel and metal mounting brackets. A 3 × 3 m matte floor surrounds the fixture.",
+  "scoring": "Award 0.2 if the keeper reaches at least −18°. Award 0.5 if the keeper opened and the seat reached 85° from horizontal. Award 1.0 if both events occurred and, throughout the final 20 controls, the seat remains at or above 85°, the keeper is at or below −40°, and summed robot contact with the seat and keeper does not exceed 0.1 N. All other outcomes score 0.",
+  "run_limit": "2,400 control steps (120 seconds at 20 Hz)",
+  "reset_notes": "Reset the seat to horizontal, the keeper to its spring-rest position, and both arms to READY. Use seed 0.",
+  "fidelity": "The source seat has rigid hinges and collision geometry. Its effective centre of mass is moved near the pivot to approximate a counterbalanced seat. The added rail and spring keeper are rigid; water, deformation and wear are omitted.",
+  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0"
+}
