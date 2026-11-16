@@ -15,5 +15,6 @@
   "run_limit": "3,000 control steps (150 seconds at 20 Hz)",
   "reset_notes": "Reset to the documented seed-0 layout with zero object jitter and both YAM arms in their READY pose. The bag is already open, with handles folded out of the way before reset.",
   "fidelity": "Real-scale rigid target objects and static colliding furniture. The duffel keeps the source appearance with a widened open body, rigid lining and floor, fixed position and outward-folded handles. Fabric flex, zipper operation, moving clasps and bottle liquid are omitted. Background objects are static.",
-  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0",
+  "media": "M-7YNU8V"
 }
