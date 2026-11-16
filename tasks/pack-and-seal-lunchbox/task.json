@@ -1,7 +1,12 @@
 {
   "title": "Pack and seal a divided lunchbox",
   "category": "Societal relatability",
-  "keywords": ["bimanual", "latch", "food packing", "lid placement"],
+  "keywords": [
+    "bimanual",
+    "latch",
+    "food packing",
+    "lid placement"
+  ],
   "instruction": "Stand the gray divider in the center guides of the lunchbox. Put the orange packet in the farther compartment and the green packet in the nearer compartment. Place the lid on the box, press all four latches closed, and release it.",
   "context": "Packing two foods in separate compartments requires a removable divider and a lid that stays closed when the box is carried.",
   "setup": "A 650 × 720 mm wooden worktop supports a fixed, open polypropylene lunchbox about 200 × 150 × 80 mm with paired divider guides. A removable frosted polypropylene lid with four swiveling tabs and a grab handle rests beside it. A gray plastic 146 × 18 × 45 mm divider and two wrapped 56 × 31 × 27 mm packet proxies start outside the box. See the README for the fixed starting poses and YAM base coordinates.",
@@ -9,5 +14,6 @@
   "run_limit": "3,000 controls (150 simulated seconds at 20 Hz)",
   "reset_notes": "Return the divider, packets and lid to the documented starting poses and reset the four hinges open.",
   "fidelity": "The physical latch geometry and hinge joints come from the source lunchbox. The tub is secured to the worktop. The rigid lid locator has 2.7 mm radial clearance added to let the lid seat. The lid, divider and two simplified rigid food packets move through contact and gravity. The expert uses ordinary arm and gripper commands.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-FL7US3"
 }
