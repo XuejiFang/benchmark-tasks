@@ -1,7 +1,12 @@
 {
   "title": "Set a window blind's height and louver angle",
   "category": "Societal relatability",
-  "keywords": ["window blind", "independent lift and tilt", "mechanical linkage", "unassisted hold"],
+  "keywords": [
+    "window blind",
+    "independent lift and tilt",
+    "mechanical linkage",
+    "unassisted hold"
+  ],
   "instruction": "Raise the blue lower rail handle to the stripe on the window frame. Press the orange lever until all the slats angle 28 degrees down toward you. Release both handles and leave the blind in this position.",
   "context": "A user can change how much of the window is covered and the view through the covered section independently. Both settings must hold after the handles are released.",
   "setup": "A fixed 590 × 700 mm painted window surround holds a blue pane and a three-slat aluminium blind. The three 75 × 315 × 3 mm slats start horizontal. The sliding lower rail is 44 × 308 × 18 mm and has a 38 × 35 × 22 mm blue grip. The orange lever tab is 37 × 41 × 16 mm. The vertical track and rubber brake retain the rail. A blue stripe marks 85 mm of travel. The README lists exact reset positions, materials and robot mounts.",
@@ -9,5 +14,6 @@
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Use seed 0. Return the rail to the lower stop and the connected slats to horizontal before resetting the arms.",
   "fidelity": "A short, three-slat mock-up with rigid linked louvers, balanced mass and a spring-preloaded rail brake. The backdrop uses an opaque pane proxy. Flexible cords, fabric tapes and optical effects are omitted. The expert changes only arm and finger commands.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-2FHLV8"
 }
