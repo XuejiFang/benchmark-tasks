@@ -14,5 +14,6 @@
   "run_limit": "2,400 control steps (120 simulated seconds at 20 Hz)",
   "reset_notes": "Restore the twelve beans to the level cup, the pointer to 0 degrees and the crank grip to the positive X side.",
   "fidelity": "The mounted grinder has freely rotating selector and crank joints. The knob spins on its own bearing. The dosing cup and beans are independent free rigid bodies. The feed intake retains the round beans for scoring. Grinding into finer particles is outside this operation.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0"
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-DXDWVD"
 }
