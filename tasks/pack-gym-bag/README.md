@@ -12,6 +12,8 @@ From this task directory, use a fresh output path for each trial:
 isaac_python=/data/IsaacLab-Arena/.venv/bin/python
 export OMNI_KIT_ACCEPT_EULA=YES OPENBLAS_NUM_THREADS=1
 
+python3 fetch_assets.py
+
 "$isaac_python" run_dream.py --output runs/dream
 "$isaac_python" audit_dream_run.py runs/dream
 
@@ -27,7 +29,7 @@ The reference expert scores 1.0 in 2,590 controls (129.5 simulated seconds). The
 
 ## Reproduce the starting configuration
 
-The standalone scene layers and textures are under `assets/`. `asset_manifest.json` records SHA-256 hashes of all dependencies. Placement uses the fixed entity order in `task.py` and the pose constants in `layout.py`. The arm bases are at world `(0, +0.355, 0.55)` and `(0, -0.355, 0.55)` metres. Positions in `layout.py` are expressed in the room frame and transformed to the arm frame by `(x, y, z) → (0.90 − x, 0.705 − y, z)`. The room and target reset use simulator defaults and embodiment seed 0 with object jitter disabled. [Scene inventory](SETUP.md) lists the visible objects and dimensions.
+`fetch_assets.py` restores the pinned scene layers and textures under `assets/` and verifies every file against the SHA-256 manifest. Placement uses the fixed entity order in `task.py` and the pose constants in `layout.py`. The arm bases are at world `(0, +0.355, 0.55)` and `(0, -0.355, 0.55)` metres. Positions in `layout.py` are expressed in the room frame and transformed to the arm frame by `(x, y, z) → (0.90 − x, 0.705 − y, z)`. The room and target reset use simulator defaults and embodiment seed 0 with object jitter disabled. [Scene inventory](SETUP.md) lists the visible objects and dimensions.
 
 ## Asset sources
 
