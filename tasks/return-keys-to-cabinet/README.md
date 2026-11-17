@@ -1,6 +1,6 @@
 # Return two keys to an entryway cabinet
 
-Open the hinged door, hang the blue and orange key rings on their assigned hooks, release both keys and close the door. Shallow tapered guides receive the key blades and reduce sway while the door moves.
+Open the hinged door, hang the blue and orange key rings on their assigned hooks, seat each blade in the guide below its hook, release both keys and close the door. The guides reduce sway while the door moves.
 
 ## Run and score a trial
 
@@ -42,6 +42,13 @@ Coordinates are metres in the robot frame. Positive X points toward the cabinet.
 
 ## Scoring
 
-The audit reads the last 20 controls. Each correctly returned key earns 0.40. In every scoring frame, the assigned hook must cross the plane of the ring within the shaft segment and within 20 mm of the aperture centre, above the ring centre. The measured key displacement from the last frame must stay within 3 mm and its rotation within 1°. Total finger and gripper contact on the key must stay at or below 0.1 N. Returning both keys and closing the released door adds 0.20 when the door is within 3° of closed and its gripper contact stays at or below 0.1 N in every scoring frame.
+The audit reads the last 20 controls (one second). In every scoring frame:
+
+- **0.40 per key:** The assigned hook crosses the plane of the ring within the shaft segment and within 20 mm of the aperture centre, above the ring centre. The blade points down into its matching guide and occupies the top 2 mm of the straight seat beneath the taper. The seat opening is 6.8 × 12.4 mm at Z = 0.884 m, with its centre at X = 0.662 m and Y = 0.0325 m for blue or −0.1475 m for orange. The scorer checks all four blade edges at the top of the straight seat and 2 mm below it. Key drift from the last frame stays within 3 mm and 1°, and robot contact on the key stays at or below 0.1 N.
+- **0.20 for closing:** Both keys qualify, and the door is within 3° of closed with robot contact at or below 0.1 N.
+
+For a physical trial, mark a circumferential line 19 mm from the blade tip. The rim of the taper is 17 mm above the straight seat. Use a fixed close-up to verify that the entire line passes below the rim and stays there while the key hangs, and that the assigned hook still passes through the ring. Record release and door closure. A small fixed interior camera can show the final state with the door closed.
+
+The original expert and Dream-1 traces were rescored with the blade check. Both expert blades qualified in all 20 final controls, so the reported scores and media still match the scorer. Run `python -m unittest test_key_return_score` to check that a threaded ring with its blade outside the guide earns no key credit.
 
 The rings use 24 convex wire segments each. The hooks, tips and blade guides have collision surfaces. The key, fob and ring each move together as a rigid body, and the hinged door is not kinematically driven. The expert moves them through finger and panel contact. Each starting pose is restored by resetting the scene.
