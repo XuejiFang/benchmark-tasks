@@ -15,41 +15,6 @@ def Xform "MonitorStand" (
         {
             point3f physics:centerOfMass = (-0.021562364, -0.00011936806, 0.4059955)
             bool physxRigidBody:disableGravity = 0
-
-            def Cube "BezelBridgeLeft" (
-                prepend apiSchemas = ["PhysicsCollisionAPI"]
-            )
-            {
-                color3f[] primvars:displayColor = [(0.26, 0.28, 0.29)]
-                double size = 1
-                float3 xformOp:scale = (0.01, 0.116, 0.014)
-                double3 xformOp:translate = (0.1170000111758709, 0.027999999992240846, 0.2950000466116283)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
-            }
-
-            def Cube "BezelBridgeRight" (
-                prepend apiSchemas = ["PhysicsCollisionAPI"]
-            )
-            {
-                color3f[] primvars:displayColor = [(0.26, 0.28, 0.29)]
-                double size = 1
-                float3 xformOp:scale = (0.01, 0.116, 0.014)
-                double3 xformOp:translate = (0.14900001117587092, 0.027999999992240846, 0.2950000466116283)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
-            }
-
-            def Cube "BezelGrip" (
-                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
-            )
-            {
-                float physxCollision:contactOffset = 0.0004
-                float physxCollision:restOffset = 0
-                color3f[] primvars:displayColor = [(0.24, 0.25, 0.27)]
-                double size = 1
-                float3 xformOp:scale = (0.036, 0.024, 0.028)
-                double3 xformOp:translate = (0.1330000111758709, 0.08399999999224085, 0.2950000466116283)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
-            }
         }
 
         over "hinge"

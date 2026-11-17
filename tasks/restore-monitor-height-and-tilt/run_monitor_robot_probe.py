@@ -75,12 +75,13 @@ def build(source, destination, *, push_pin=False, tilt=False,tilt_friction=.033)
 
 
 def run(source, output, pin_only, *, push_pin=False, tilt=False,tilt_friction=.033,
-        asset_path=None, dream=False, setup_only=False):
+        asset_path=None, dream=False, setup_only=False, stock_bezel=False,
+        bezel_local=(.042,.030,.568), bezel_pitch=-30., left_height=.89):
     from inspect_robots import Scene
     from isaaclab import sim as sim_utils
     from PIL import Image
     import torch
-    from yam_arena import inspect_embodiment, scene
+    from yam_arena import ik, inspect_embodiment, scene, station
     from yam_arena.constants import READY
     from yam_arena.demo import DOWN_GRIP
     from yam_arena.runtime import arm_q, tcp_world
@@ -89,6 +90,26 @@ def run(source, output, pin_only, *, push_pin=False, tilt=False,tilt_friction=.0
     from record_trial import record_trial
 
     asset = asset_path or output/'stand.usda'
+    mounts = list(MOUNTS)
+    if stock_bezel:
+        from pxr import Usd, UsdGeom
+
+        # Keep the original housing and disable the trial-specific support parts.
+        stock_asset = output/'stock_stand.usda'
+        stock_stage = Usd.Stage.CreateNew(str(stock_asset))
+        UsdGeom.SetStageMetersPerUnit(stock_stage, 1.)
+        UsdGeom.SetStageUpAxis(stock_stage, UsdGeom.Tokens.z)
+        stock_root = stock_stage.DefinePrim('/MonitorStand', 'Xform')
+        stock_stage.SetDefaultPrim(stock_root)
+        stock_root.GetReferences().AddReference(str(asset.resolve()))
+        for name in ('BezelBridgeLeft','BezelBridgeRight','BezelGrip'):
+            extra_grip = stock_stage.GetPrimAtPath('/MonitorStand'+SCREEN_PATH+'/'+name)
+            if extra_grip:
+                extra_grip.SetActive(False)
+        stock_stage.GetRootLayer().Save()
+        asset = stock_asset
+        mounts[0] = (*mounts[0][:2],left_height)
+        station.BASES = dict(zip(('left','right'),mounts))
     if asset_path is None:
         midpoint,lip,hinge_local = build(source,asset,push_pin=push_pin,tilt=tilt,tilt_friction=tilt_friction)
     else:
@@ -100,7 +121,10 @@ def run(source, output, pin_only, *, push_pin=False, tilt=False,tilt_friction=.0
         midpoint = (height.GetLowerLimitAttr().Get()+height.GetUpperLimitAttr().Get())/2
         hinge = UsdPhysics.RevoluteJoint.Get(stage,root+'/Joints/tilt_hinge')
         hinge_local = np.asarray(hinge.GetLocalPos1Attr().Get())
-        lip = np.asarray(stage.GetPrimAtPath(root+SCREEN_PATH+'/BezelGrip').GetAttribute('xformOp:translate').Get())
+        if stock_bezel:
+            lip = np.asarray(bezel_local)
+        else:
+            lip = np.asarray(stage.GetPrimAtPath(root+SCREEN_PATH+'/BezelGrip').GetAttribute('xformOp:translate').Get())
     rotation = Rotation.from_euler('z', 90., degrees=True)
     paths = {'pin': PIN_PATH, 'bezel': SCREEN_PATH}
 
@@ -183,7 +207,7 @@ def run(source, output, pin_only, *, push_pin=False, tilt=False,tilt_friction=.0
                     action[arm*7:arm*7+6] = q
                     step(phase)
 
-                cartesian_move(lambda: arm_q(robots[arm]), send, MOUNTS[arm], wrists[arm].as_quat(),
+                cartesian_move(lambda: arm_q(robots[arm]), send, mounts[arm], wrists[arm].as_quat(),
                                np.array(point), seconds, phase, interpolate_orientation=orient)
 
             def point(name, local):
@@ -192,7 +216,9 @@ def run(source, output, pin_only, *, push_pin=False, tilt=False,tilt_friction=.0
 
             def grasp(arm, target, name):
                 action[arm*7+6] = .79 if name=='bezel' and push_pin else .46
-                move(arm, target+[0., 0., .052], 2.8, 'approach '+name, True)
+                approach = (-.052*wrists[arm].apply([0.,0.,1.]) if stock_bezel and name=='bezel'
+                            else np.array([0.,0.,.052]))
+                move(arm, target+approach, 2.8, 'approach '+name, True)
                 move(arm, target, 1.6, 'lower over '+name)
                 hold(18, 'settle wrist over '+name)
                 command = target.copy()
@@ -213,9 +239,17 @@ def run(source, output, pin_only, *, push_pin=False, tilt=False,tilt_friction=.0
 
             hold(35, 'let the stand settle')
             if not pin_only:
+                if stock_bezel:
+                    expected, _ = ik.tcp_pose(arm_q(robots[0]), mounts[0])
+                    if np.linalg.norm(expected - tcp_world(robots[0])) > .015:
+                        raise RuntimeError('Left-arm mount does not match the planned workcell')
                 if push_pin:
                     wrists[0] = Rotation.from_quat(DOWN_GRIP)
-                adjustment = [-.008,.010,.008] if push_pin else [0.,0.,.014]
+                if stock_bezel:
+                    wrists[0] = Rotation.from_euler('y',bezel_pitch,degrees=True)*wrists[0]
+                    adjustment = np.zeros(3)
+                else:
+                    adjustment = [-.008,.010,.008] if push_pin else [0.,0.,.014]
                 grasp(0,point('bezel',lip)+adjustment,'bezel')
             if push_pin:
                 wrists[1] = Rotation.from_euler('y',-55.,degrees=True)*Rotation.from_quat(DOWN_GRIP)
@@ -304,12 +338,18 @@ if __name__ == '__main__':
     parser.add_argument('--push-pin',action='store_true')
     parser.add_argument('--tilt',action='store_true')
     parser.add_argument('--tilt-friction',type=float,default=.033)
+    parser.add_argument('--stock-bezel', action='store_true', help='Use the source monitor housing directly.')
+    parser.add_argument('--bezel-local', type=float, nargs=3, default=(.042,.030,.568))
+    parser.add_argument('--bezel-pitch', type=float, default=-30.)
+    parser.add_argument('--left-height', type=float, default=.89)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--dream',action='store_true')
     mode.add_argument('--setup-only',action='store_true')
     args = parser.parse_args()
     if args.asset is not None:
         args.push_pin = args.tilt = True
+    if args.stock_bezel and args.asset is None:
+        parser.error('--stock-bezel requires the prebuilt --asset')
     if args.tilt and (args.pin_only or not args.push_pin):
         parser.error('--tilt requires the bilateral paddle and handhold sequence')
     if args.dream and args.asset is None:
@@ -321,7 +361,9 @@ if __name__ == '__main__':
         from yam_arena import inspect_embodiment
         inspect_embodiment._APP = app
         result = run(args.source,args.output,args.pin_only,push_pin=args.push_pin,tilt=args.tilt,
-                     tilt_friction=args.tilt_friction,asset_path=args.asset,dream=args.dream,setup_only=args.setup_only)
+                     tilt_friction=args.tilt_friction,asset_path=args.asset,dream=args.dream,setup_only=args.setup_only,
+                     stock_bezel=args.stock_bezel,bezel_local=args.bezel_local,bezel_pitch=args.bezel_pitch,
+                     left_height=args.left_height)
         (args.output/'result.json').write_text(json.dumps(result, indent=2)+'\n')
         print(json.dumps(result), flush=True)
     except Exception:

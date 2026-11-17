@@ -9,12 +9,12 @@
     "tilt hinge"
   ],
   "instruction": "Support the monitor and press the orange paddle to unlock the height. Lower the monitor to the middle slot, let the paddle return, and tilt the screen back 10 degrees from vertical. Release the monitor.",
-  "context": "A shared desk stand may need different height and tilt settings from one user to the next. The support grip, height lock and tilt hinge each have a different role.",
-  "setup": "A 27-inch ABS and glass monitor, approximately 170 × 605 × 362 mm including its 36 × 24 × 28 mm support grip, starts vertical at the top slot. A fixed 249 × 308 × 447 mm metal stand holds the screen, with a metal hinge bracket, 30 × 22 × 151 mm three-slot steel rail and 36 × 14 × 48 mm orange plastic pin paddle. The 430 × 510 × 35 mm wood worktop stands over a 3 m square matte floor. The README lists the YAM mounts and exact starting positions.",
+  "context": "A shared desk stand may need different height and tilt settings from one user to the next. The stand requires the display to be supported during height adjustment, and the release pin and tilt hinge hold its settings after handling.",
+  "setup": "A 27-inch monitor with its original case and bezel, approximately 70 × 605 × 362 mm in the simulated source geometry, starts vertical at the top slot. A fixed 249 × 308 × 447 mm stand holds it, with a hinge bracket, 30 × 22 × 151 mm three-slot steel rail and 36 × 14 × 48 mm orange pin paddle. The 430 × 510 × 35 mm wood worktop stands over a 3 m square matte floor. The README gives the YAM mounts and exact starting positions.",
   "scoring": "Use the final 20 controls. If summed robot contact on the pin and screen exceeds 0.1 N, score zero. Otherwise give 0.60 if the slide is within 4 mm of the center slot and the pin is within 2 mm of full engagement throughout. Separately give 0.40 if the screen is within 2 degrees of 10 degrees backward from vertical throughout.",
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Use seed 0. Return the height to its top slot, engage the pin and reset tilt to vertical. Return both arms to their reset poses.",
-  "fidelity": "SimReady monitor scale and mass are retained. The stand fixes the foot and adds a height counterbalance, balanced tilt mass, a physical spring pin and a rigid support grip. The screen and cables have no electronics. Only robot commands move the mechanism during scored trials.",
+  "fidelity": "The monitor retains its source housing and has no added handhold. The stand has a passive height counterbalance, balanced tilt hinge and spring-return indexing pin. The physical stand instructions describe how to reproduce the mechanism with a VESA display, stock guide and springs and how to check operating force. Only robot commands move the model during scored trials.",
   "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
-  "media": "M-4EDYVB"
+  "media": "M-BFA6V4"
 }

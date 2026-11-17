@@ -2,7 +2,7 @@
 
 Support the monitor and press the orange paddle to unlock the height. Lower the monitor to the middle slot, let the paddle return, and tilt the screen back 10 degrees from vertical. Release the monitor.
 
-The height lock and the tilt hinge hold different ergonomic settings on a shared desk. The final settings must hold after the hands leave.
+The height lock and the tilt hinge hold different ergonomic settings on a shared desk. The final settings must hold after the hands leave. The [physical stand instructions](PHYSICAL_STAND.md) specify the parts, mounting, springs and calibration checks for an unmodified display housing.
 
 ## Run and score
 
@@ -14,19 +14,21 @@ Run from this directory and use a fresh output directory for each trial.
 isaac_python=/data/IsaacLab-Arena/.venv/bin/python
 export OMNI_KIT_ACCEPT_EULA=YES OPENBLAS_NUM_THREADS=2
 
-"$isaac_python" run_monitor_robot_probe.py --asset assets/stand.usda --output runs/expert
+"$isaac_python" run_monitor_robot_probe.py --asset assets/stand.usda --stock-bezel --output runs/expert
 "$isaac_python" audit_monitor_trial.py runs/expert
 
 # Configure Dream Labs credentials according to the walkthrough.
-"$isaac_python" run_monitor_robot_probe.py --asset assets/stand.usda --dream --output runs/dream
+"$isaac_python" run_monitor_robot_probe.py --asset assets/stand.usda --stock-bezel --dream --output runs/dream
 "$isaac_python" audit_monitor_trial.py runs/dream
 
-"$isaac_python" run_monitor_robot_probe.py --asset assets/stand.usda --setup-only --output runs/setup
+"$isaac_python" run_monitor_robot_probe.py --asset assets/stand.usda --stock-bezel --setup-only --output runs/setup
 ```
 
 Seed 0 fixes the starting positions. Each video frame in the action recordings represents one control. The limit is 2,400 controls at 20 Hz, or 120 simulated seconds. Each control records slide height, hinge angle, pin extension and gripper contact. The expert commands only robot joints and fingers.
 
-The independent expert scores 1.0 in 493 controls or 24.65 simulated seconds. The released screen holds −9.21° with a maximum middle-slot error of 0.014 mm. Dream-1 scores 0.0 in 2,400 controls and 50 requests. The Dream-1 run takes about 15 minutes 26 seconds on an L40S under a concurrent workload.
+The expert scores 1.0 in 519 controls (25.95 simulated seconds) using the source housing. The final 20 controls have zero measured gripper contact, a maximum middle-slot error of 0.010 mm, and a final tilt of 9.56° backward from vertical.
+
+Dream-1 scores 0.0 after 2,400 controls and 50 requests. The pin never clears the top slot, and the final tilt is 4.26° backward. The reference Dream episode took about 6 minutes 23 seconds after initialisation on the Brev L40S.
 
 ## Fixed setup
 
@@ -34,11 +36,11 @@ Positions are in metres in the dual-arm frame. Positive X is forward from the ar
 
 | Object | Size and represented material | Reset |
 | --- | --- | --- |
-| Monitor and support grip | 27-inch monitor with ABS housing and a simulated glass display. The screen assembly, including grip, is approximately 170 × 605 × 362 mm in monitor coordinates and 7.27 kg. The support grip is 36 × 24 × 28 mm. | Mounted to the moving bracket, screen vertical, at the highest slot. |
+| Monitor | A 27-inch monitor with original case and bezel, approximately 70 × 605 × 362 mm in the source geometry. Its simulated mass is 7.27 kg. | Mounted to the moving bracket, screen vertical, at the highest slot. |
 | Stand and hinge bracket | Approximately 249 × 308 × 447 mm metal stand and 116 × 115 × 63 mm metal bracket | Foot at `(0.280, 0.090, 0.490)`, yaw 90° from the asset frame. Slide travel is 112.88 mm. Tilt travel is −15° to +5°. |
 | Lock rail and orange paddle | A roughly 30 × 22 × 151 mm fixed steel rail with three slots. The 36 × 14 × 48 mm moulded paddle moves a spring-loaded steel pin. | Rail is fixed to the stand frame. Pin starts engaged in the top slot; the middle-slot datum is 56.44 mm below the top stop. |
 | Worktop and floor | 430 × 510 × 35 mm wood worktop and 3 × 3 × 0.04 m matte floor | Centers are `(0.385, 0.100, 0.4725)` and `(0.450, 0, −0.020)`. |
-| YAM pair and adapter marker | Two six-axis arms and one 10 mm bookkeeping marker outside the work area | Bases at `(0, ±0.305, 0.750)`. Marker center at `(−0.5, 0, −0.05)`. |
+| YAM pair and adapter marker | Two six-axis arms and one 10 mm bookkeeping marker outside the work area | Bases at `(0, 0.305, 0.890)` (display arm) and `(0, −0.305, 0.750)` (paddle arm). Marker center at `(−0.5, 0, −0.05)`. |
 
 ## Outcome
 
@@ -49,4 +51,4 @@ The final 20 controls must have at most 0.1 N summed gripper contact on the pin 
 
 A ruler, an angle gauge and visual confirmation of the released pin measure the equivalent real stand state. Reset to the top slot, vertical screen and released orange paddle. Reinitialize the arm poses before a new trial.
 
-The original monitor mass and orientation limits are retained. The model adds a passive counterbalance, a capped hinge with balanced mass, a support extension and a physical three-slot spring pin. The monitor foot is fixed to the worktop. Electronics and cable routing are omitted. [Source asset and attribution](THIRD_PARTY_NOTICES.md)
+The original monitor mass and orientation limits are retained. The model adds a passive counterbalance, a tilt hinge with balanced mass and a physical three-slot spring pin. The robot grasps the source housing directly. The monitor foot is fixed to the worktop. Electronics and cable routing are omitted. [Source asset and attribution](THIRD_PARTY_NOTICES.md)
