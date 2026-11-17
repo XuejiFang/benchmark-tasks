@@ -13,7 +13,7 @@
   "scoring": "Award 0.2 if the keeper reaches at least −18°. Award 0.5 if the keeper opened and the seat reached 85° from horizontal. Award 1.0 if both events occurred and, throughout the final 20 controls, the seat remains at or above 85°, the keeper is at or below −40°, and summed robot contact with the seat and keeper does not exceed 0.1 N. All other outcomes score 0.",
   "run_limit": "2,400 control steps (120 seconds at 20 Hz)",
   "reset_notes": "Reset the seat to horizontal, the keeper to its spring-rest position, and both arms to READY. Use seed 0.",
-  "fidelity": "The source seat has rigid hinges and collision geometry. Its effective centre of mass is moved near the pivot to approximate a counterbalanced seat. The added rail and spring keeper are rigid; water, deformation and wear are omitted.",
+  "fidelity": "The seat hinge, grab rail and spring keeper use rigid colliders. The simulation represents a counterweighted seat with equivalent moving mass and a centre 5.83 mm in front of the hinge. The included unloaded physical fixture design uses an opposing weight on the hinge shaft, with trim ballast, a calibrated torsion spring, and force targets to check the match. The videos are simulation trials. Water, material deformation and wear are omitted.",
   "scores": "Dream-1 run: 0.0; scripted expert demo: 1.0",
   "media": "M-DBV5RC"
 }
