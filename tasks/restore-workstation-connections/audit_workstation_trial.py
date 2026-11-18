@@ -17,6 +17,10 @@ MIN_ALIGNMENT = cos(radians(6.))
 def audit(rows):
     if len(rows)<20:
         raise ValueError('Expected at least 20 controls to verify the released assembly')
+    min_depth, max_depth = .0075, .0105
+    if rows[0].get('connector_model') == 'molex_usb_c':
+        from usb_c_retention import MIN_SEATED_DEPTH, MAX_SEATED_DEPTH
+        min_depth, max_depth = MIN_SEATED_DEPTH, MAX_SEATED_DEPTH
 
     def connector(key,sensor,y):
         observations = []
@@ -24,7 +28,7 @@ def audit(rows):
             x, lateral, height, qx, qy, qz, _ = row[key]
             axis_toward_port = 1-2*(qy*qy+qz*qz)
             shell_right_side_up_or_inverted = abs(1-2*(qx*qx+qy*qy))
-            aligned = (x-PORT_X<=.0105 and abs(lateral-y)<=.001 and abs(height-PORT_Z)<=.001
+            aligned = (x-PORT_X<=max_depth and abs(lateral-y)<=.001 and abs(height-PORT_Z)<=.001
                        and min(axis_toward_port,shell_right_side_up_or_inverted)>=MIN_ALIGNMENT)
             observations.append((x-PORT_X,aligned,sum(row['contacts_by_object_n'][sensor]),
                                  abs(lateral-y),abs(height-PORT_Z)))
@@ -32,13 +36,13 @@ def audit(rows):
         stable = 0
         established = None
         for i,(depth,aligned,contact,*_) in enumerate(observations):
-            stable = stable+1 if depth>=.0075 and aligned and contact<=.1 else 0
+            stable = stable+1 if depth>=min_depth and aligned and contact<=.1 else 0
             if stable==20:
                 established = i-19
                 break
-        maintained = established is not None and all(depth>=.0075 and aligned
+        maintained = established is not None and all(depth>=min_depth and aligned
                                                      for depth,aligned,*_ in observations[established:])
-        return {'passed':maintained and all(depth>=.0075 and aligned and contact<=.1
+        return {'passed':maintained and all(depth>=min_depth and aligned and contact<=.1
                                            for depth,aligned,contact,*_ in tail),
                 'final_min_depth_mm':1000*min(v[0] for v in tail),
                 'final_max_lateral_mm':1000*max(v[3] for v in tail),

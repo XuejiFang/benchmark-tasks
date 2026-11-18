@@ -1,6 +1,6 @@
 {
   "title": "Connect two workstation ports and route the slack without disconnecting them",
-  "category": "Societal relatability",
+  "category": "Societal relevance",
   "keywords": [
     "bimanual",
     "cable management",
@@ -9,11 +9,11 @@
   ],
   "instruction": "Plug the two blue cable ends into the green-marked ports on the two devices. Place the gold collar in the open cable guide and let go of both ends and the collar.",
   "context": "A shared workstation is ready to use when the two devices are connected and the slack is out of the working area. Routing a taut cable can pull an already inserted plug loose.",
-  "setup": "On a 600 × 720 × 40 mm wood worktop, two 83 × 105 × 44 mm polymer device bases carry metal USB-C-style sockets. A blue-handled connector rests on each 53 × 42 × 49 mm support at reset. Their flexible jointed cable has a 16 × 16 × 11 mm gold collar with a raised grip and starts in a loose S-shape. The open guide has a 55 × 135 mm base and 16 mm side lips. Two YAM arms are mounted at worktop height. The README gives exact starting positions and material details.",
-  "scoring": "Award 0.35 per correctly seated plug released for one second and still seated through routing and the trial end, with no gripper contact in the final second. In the real fixture, use video of the grip front in the 1.50 mm witness band at the marked port. With both plugs credited, award 0.30 if the released collar rests inside the outline for the final second. The README gives equivalent numeric simulation checks and instructions for observing the physical trial.",
+  "setup": "Two 83 × 105 × 44 mm polymer devices on a 600 × 720 × 40 mm wood worktop carry three stock Molex 1054500101 Type-C receptacles, two marked in green. The two loose Molex 1054440001 plugs have 21 × 12 × 8 mm blue polymer grips and rest on 40 × 42 × 49 mm stands. A 908 mm flexible cord runs between them in an S-shape. Its raised gold collar starts outside the 55 × 135 mm polymer guide. Two YAM arms reach from either side. The README and USD specify the fixed coordinates and dimensions.",
+  "scoring": "Award 0.35 per correctly seated plug released for one second and still seated through routing and the trial end, with no gripper contact in the final second. On hardware, use video of the grip front within 0.40 mm of the fully seated witness line. With both plugs credited, award 0.30 if the released collar rests inside the outline in the final second.",
   "run_limit": "2,400 controls (120 simulated seconds at 20 Hz)",
   "reset_notes": "Return the two connectors to their stands and lay the cord in the authored S-shape with the collar outside the guide. Use scene seed 0.",
-  "fidelity": "The passive physical fixture can be fabricated from the included dimensioned connector and guide geometry. Shell, socket, tongue, supports and guide interact through collision. Cable tension is approximated with jointed rigid segments. The task checks mechanical retention; neither simulated nor fabricated trainer uses electrical contacts.",
-  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
-  "media": "M-QT5VUU"
+  "fidelity": "The task uses stock Molex Type-C connectors for a physical build. The revised simulation includes rounded colliding shells, polymer tongues, and a passive axial insertion and retention model targeted to the published mating and extraction ranges. A jointed cable approximates slack and tension. Electrical signaling is not simulated.",
+  "scores": "Dream-1 simulation: 0.0 (2,400 controls); scripted simulation demo: 1.0 (1,509 controls).",
+  "media": "M-DYCVPV"
 }

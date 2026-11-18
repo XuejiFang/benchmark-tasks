@@ -3,6 +3,7 @@
 import argparse
 import json
 from pathlib import Path
+import sys
 import traceback
 from types import SimpleNamespace
 
@@ -174,7 +175,7 @@ def run(args):
 
 
 def run_yam(output, *, cable=False, full=False, retention=False, strain_support=False, first_only=False,
-            raised_collar=False,service_loop=False,dream=False,fixture=None,setup_only=False):
+            raised_collar=False,service_loop=False,dream=False,fixture=None,setup_only=False,usb_c=False):
     import isaaclab.sim as sim_utils
     from inspect_robots import Scene
     from PIL import Image
@@ -228,9 +229,30 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
                 scene.DomeLight(spawner_cfg=sim_utils.DomeLightCfg(intensity=1400.))]
 
     install(asset,output,shift,(0.,0.,0.,1.),grip_objects,room_factory=room,robot_contact_offset=.0006)
+    if usb_c:
+        from usb_c_retention import PHYSICS_HZ
+
+        original_build = scene.build_task_environment
+
+        def with_retention_step(*args, **kwargs):
+            arena = original_build(*args, **kwargs)
+            configure = arena.env_cfg_callback
+
+            def configure_step(cfg):
+                cfg = configure(cfg)
+                cfg.sim.dt = 1/PHYSICS_HZ
+                cfg.decimation = PHYSICS_HZ//20
+                cfg.sim.render_interval = cfg.decimation
+                return cfg
+
+            arena.env_cfg_callback = configure_step
+            return arena
+
+        scene.build_task_environment = with_retention_step
     height,width = (176,320) if dream else (360,640)
     env = inspect_embodiment.YamArenaEmbodiment(headless=True,cam_height=height,cam_width=width,control_hz=20,
         object_jitter=0.,task=str(Path(__file__).with_name('press_fixture_task.py')))
+    retention_subscription = None
     try:
         specification = Scene(id='workstation-connector-contact',instruction=INSTRUCTION if full else
                               'Insert the blue connector into the nearer socket.')
@@ -249,6 +271,9 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
             Image.fromarray(env._observation().images['top_cam']).save(output/'setup.png')
             return {'scope':'fixed reset screenshot','seed':0}
         observer = MechanismObserver(base.sim.stage)
+        if usb_c:
+            from usb_c_retention import MIN_SEATED_DEPTH, TARGET_SEATED_DEPTH, install_retention
+            retention_subscription, axial_forces = install_retention(observer, ('/First', '/Second'), base.device)
         action = np.array([*READY,1.,*READY,1.])
         trace = []
         wrist = Rotation.from_quat(DOWN_GRIP)
@@ -271,6 +296,9 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
                     row['second_pose_xyzw'] = states['/Second']['pose_xyzw']
                     row['collar_pose_xyzw'] = states[grip_objects['collar']]['pose_xyzw']
                     row['contacts_by_object_n'] = contacts
+                if usb_c:
+                    row['connector_model'] = 'molex_usb_c'
+                    row['usb_c_axial_force_n'] = axial_forces.detach().cpu().tolist()
                 if inference_latency is not None:
                     row['inference_latency_s'] = inference_latency
                 trace.append(row)
@@ -313,7 +341,8 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
                 wrist = Rotation.from_quat(DOWN_GRIP)
                 hold(30,active+' settle on stand')
                 start = np.asarray(trace[-1]['pose_xyzw'][:3])
-                grip = start+[-.019,0.,.010]
+                # Hold the rear of the blue housing so both fingertips clear the faceplate.
+                grip = start+[-.023 if usb_c else -.019,0.,.010]
                 move(grip+[0.,0.,.045],2.5,'approach connector',True)
                 move(grip,1.6,'lower around grip housing')
                 action[gripper] = 0.
@@ -325,29 +354,83 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
                 inverse = Rotation.from_quat(pose[3:]).inv()
                 offset = inverse.apply(tcp_world(arm)-pose[:3])
                 wrist = inverse*wrist
-                standby = port+[-.014,0.,.053]+offset
+                standby = port+[-.002 if usb_c else -.014,0.,.053]+offset
                 move(standby+[0.,0.,.035],2.3,'carry in front of socket',True)
                 move(standby,1.8,'align shell at socket mouth')
                 command = standby.copy()
-                for depth_target in np.linspace(-.012,.0084,14):
-                    target = port+[depth_target,0.,.053]
-                    for _ in range(5):
-                        pose = np.asarray(trace[-1]['pose_xyzw'][:3])
-                        correction = target-pose
-                        if np.linalg.norm(correction)<=.00045:
+                if usb_c:
+                    from yam_arena.constants import ARM_JOINTS, SHOULDER, WRIST
+
+                    joint_ids,_ = arm.find_joints(ARM_JOINTS,preserve_order=True)
+                    stiffness = torch.tensor([[SHOULDER['stiffness']]*3+[WRIST['stiffness']]*3],device=base.device)
+                    damping = torch.tensor([[SHOULDER['damping']]*3+[WRIST['damping']]*3],device=base.device)
+                    # Tighten expert position tracking while preserving the YAM effort limits.
+                    arm.write_joint_stiffness_to_sim_index(stiffness=5.*stiffness,joint_ids=joint_ids)
+                    arm.write_joint_damping_to_sim_index(damping=2.2*damping,joint_ids=joint_ids)
+                    socket = port + [0., 0., .053]
+                    for attempt in range(5):
+                        if attempt:
+                            # Unload the shell before correcting across the socket face.
+                            depth = trace[-1]['pose_xyzw'][0]-socket[0]
+                            command[0] -= max(depth+.0012,.0006)
+                            move(command,.35,'back off from socket',orient=True)
+                            hold(7,'unload shell')
+                        for _ in range(16):
+                            samples = np.asarray([row['pose_xyzw'] for row in trace[-5:]])
+                            pose = np.median(samples[:,:3],axis=0)
+                            tilt = Rotation.from_quat(samples[:,3:]).mean().as_rotvec()
+                            error = socket+[-.0012,0.,0.]-pose
+                            if abs(error[0])<.00024 and np.max(np.abs(error[1:]))<.000075 and np.linalg.norm(tilt)<.003:
+                                break
+                            command += np.clip(error*.45,[-.00065,-.00024,-.00024],[.00065,.00024,.00024])
+                            wrist = Rotation.from_rotvec(np.clip(-.5*tilt,-.004,.004))*wrist
+                            move(command,.15,'center shell before applying load',orient=True)
+                            hold(5,'measure free shell')
+                        for _ in range(70):
+                            samples = np.asarray([row['pose_xyzw'] for row in trace[-5:]])
+                            pose = np.median(samples[:,:3],axis=0)
+                            depth = pose[0]-socket[0]
+                            lateral = socket[1:]-pose[1:]
+                            tilt = Rotation.from_quat(samples[:,3:]).mean().as_rotvec()
+                            if depth>=MIN_SEATED_DEPTH and np.max(np.abs(lateral))<.00025:
+                                break
+                            # Let the chamfer center the shell under light load. Retract when
+                            # it catches on an edge and leaves the entry envelope.
+                            if -.00055<depth<.00025 and (np.max(np.abs(lateral))>.00022 or np.linalg.norm(tilt)>.008):
+                                break
+                            axial = np.clip(.6*(TARGET_SEATED_DEPTH-depth),-.00055,.00070)
+                            command += np.r_[axial,np.clip(.35*lateral,-.00018,.00018)]
+                            wrist = Rotation.from_rotvec(np.clip(-.5*tilt,-.003,.003))*wrist
+                            lag = command-tcp_world(arm)
+                            if abs(lag[0])>.028 or np.linalg.norm(lag[1:])>.009:
+                                break
+                            move(command,.15,'advance aligned USB-C shell',orient=True)
+                            hold(5,'measure insertion')
+                        if trace[-1]['pose_xyzw'][0]-socket[0]>=MIN_SEATED_DEPTH:
                             break
-                        command += np.clip(correction*.72,-.0018,.0018)
-                        if np.linalg.norm(command-tcp_world(arm))>.011:
-                            raise RuntimeError(f'{active} connection stopped progressing at the contact limit')
-                        move(command,.26,'align and feed connector')
-                        hold(7,'measure connector at socket')
+                else:
+                    for depth_target in np.linspace(-.012,.0084,14):
+                        target = port+[depth_target,0.,.053]
+                        for _ in range(5):
+                            pose = np.asarray(trace[-1]['pose_xyzw'][:3])
+                            correction = target-pose
+                            if np.linalg.norm(correction)<=.00045:
+                                break
+                            command += np.clip(correction*.72,-.0018,.0018)
+                            if np.linalg.norm(command-tcp_world(arm))>.011:
+                                raise RuntimeError(f'{active} connection stopped progressing at the contact limit')
+                            move(command,.26,'align and feed connector')
+                            hold(7,'measure connector at socket')
                 hold(12,'hold seated plug')
-                if trace[-1]['pose_xyzw'][0]-port[0]<.0075:
+                if trace[-1]['pose_xyzw'][0]-port[0]<(MIN_SEATED_DEPTH if usb_c else .0075):
                     raise RuntimeError(f'{active} connector did not reach the full insertion depth')
                 action[gripper] = .65
                 hold(18,'release plug')
                 move(tcp_world(arm)+[0.,0.,.035],1.5,'withdraw from seated plug')
                 hold(20,'settle released plug')
+                if usb_c:
+                    arm.write_joint_stiffness_to_sim_index(stiffness=stiffness,joint_ids=joint_ids)
+                    arm.write_joint_damping_to_sim_index(damping=damping,joint_ids=joint_ids)
 
             if full:
                 active = 'first'
@@ -362,7 +445,7 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
                     force = max(sum(row['contacts_by_object_n']['first']) for row in trace[-20:])
                     return {'scope':'YAM seats the first connector from two loose ends','steps':len(trace),
                             'first_min_depth_mm':depth*1000,'max_final_contact_n':force,
-                            'first_seated':depth>=.0075 and force<=.1}
+                            'first_seated':depth>=(MIN_SEATED_DEPTH if usb_c else .0075) and force<=.1}
                 active = 'plug'
                 arm = base.scene['left_robot']
                 mount = (0.,.305,.75)
@@ -412,6 +495,7 @@ def run_yam(output, *, cable=False, full=False, retention=False, strain_support=
                           first_min_depth_mm=first_depth,first_stayed_seated=first_depth>=7.5)
         return result
     finally:
+        retention_subscription = None
         env.close()
 
 
@@ -430,11 +514,14 @@ if __name__=='__main__':
     parser.add_argument('--dream',action='store_true')
     parser.add_argument('--fixture',type=Path)
     parser.add_argument('--setup-only',action='store_true')
+    parser.add_argument('--usb-c',action='store_true', help='Use the Molex mating geometry and contact force law.')
     args = parser.parse_args()
     if args.dream or args.fixture is not None or args.setup_only:
         args.full = True
     if args.fixture is not None:
         args.raised_collar = True
+    if args.usb_c and args.fixture is None:
+        parser.error('--usb-c requires --fixture assets/workstation-usbc.usda')
     if args.full:
         args.cable = True
     if args.retention and not args.cable:
@@ -451,7 +538,8 @@ if __name__=='__main__':
             inspect_embodiment._APP = app
             report = run_yam(args.output,cable=args.cable,full=args.full,retention=args.retention,
                              strain_support=args.strain_support,first_only=args.first_only,raised_collar=args.raised_collar,
-                             service_loop=args.service_loop,dream=args.dream,fixture=args.fixture,setup_only=args.setup_only)
+                             service_loop=args.service_loop,dream=args.dream,fixture=args.fixture,
+                             setup_only=args.setup_only,usb_c=args.usb_c)
         else:
             report = run(args)
         (args.output/'result.json').write_text(json.dumps(report,indent=2)+'\n')
@@ -460,4 +548,4 @@ if __name__=='__main__':
         (args.output/'failure.log').write_text(traceback.format_exc())
         raise
     finally:
-        app.close()
+        app.close(exit_code=1 if sys.exc_info()[0] is not None else 0)
