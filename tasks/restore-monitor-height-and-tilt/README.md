@@ -2,7 +2,7 @@
 
 Support the monitor and press the orange paddle to unlock the height. Lower the monitor to the middle slot, let the paddle return, and tilt the screen back 10 degrees from vertical. Release the monitor.
 
-The height lock and the tilt hinge hold different ergonomic settings on a shared desk. The final settings must hold after the hands leave. The [physical stand instructions](PHYSICAL_STAND.md) specify the parts, mounting, springs and calibration checks for an unmodified display housing.
+The height lock and the tilt hinge hold different ergonomic settings on a shared desk. The final settings must hold after the hands leave. The [physical stand instructions](PHYSICAL_STAND.md) document the actual indexed-lock precedent, itemised budget, spring and damper mount coordinates, hinge torque and acceptance checks for the bench replica.
 
 ## Run and score
 
